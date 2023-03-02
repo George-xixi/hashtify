@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import results from "../data/results.json";
+import SearchResults from "./SearchResults";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState("");
+  const [loading, setLoading] = useState(true);
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSearchResults(results[searchValue]);
+    await setLoading(false);
   };
 
   return (
@@ -28,7 +31,9 @@ const Search = () => {
           <button type="submit">Search</button>
         </form>
       </div>
-      <div className="search-results">{searchResults && searchResults}</div>
+      <div className="search-results">
+        {!loading && <SearchResults searchResults={searchResults} />}
+      </div>
     </div>
   );
 };

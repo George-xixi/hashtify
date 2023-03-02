@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Results renders no search results correctly 1`] = `
+<DocumentFragment>
+  <p
+    class="no-results-message"
+  >
+    Sorry, we couldn't find anything.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`Search Results renders search results correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="search-results"
+  >
+    test test test test
+  </div>
+</DocumentFragment>
+`;
