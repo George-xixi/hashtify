@@ -5,14 +5,14 @@ import SearchResults from "./SearchResults";
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [ready, setReady] = useState(false);
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSearchResults(results[searchValue]);
-    await setLoading(false);
+    await setReady(true);
   };
 
   return (
@@ -32,7 +32,7 @@ const Search = () => {
         </form>
       </div>
       <div className="search-results">
-        {!loading && <SearchResults searchResults={searchResults} />}
+        {ready && <SearchResults searchResults={searchResults} />}
       </div>
     </div>
   );
