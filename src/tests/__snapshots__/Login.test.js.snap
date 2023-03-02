@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<DocumentFragment>
+  <div
+    class="login"
+  >
+    <h1>
+      #Hashtify
+    </h1>
+    <h2>
+      Log in to search, create and manage your hashtags.
+    </h2>
+    <button
+      type="button"
+    >
+      Log in
+    </button>
+    <h2>
+      Or you can search without logging in.
+    </h2>
+    <button
+      type="button"
+    >
+      I just want to search
+    </button>
+  </div>
+</DocumentFragment>
+`;

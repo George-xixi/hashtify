@@ -1,10 +1,14 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Login from "./Login";
 import "../styles/App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hashtag Generator</h1>
+      <Routes>
+        <Route path="/" element={<Login />} />
+      </Routes>
     </div>
   );
 }
