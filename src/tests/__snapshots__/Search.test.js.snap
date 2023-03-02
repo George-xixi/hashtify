@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<DocumentFragment>
+  <div
+    class="search"
+  >
+    <h1>
+      #Hashtify
+    </h1>
+    <form>
+      <label
+        for="search-input"
+      >
+        Search for hashtags
+      </label>
+      <input
+        id="search-input"
+        name="search-input"
+        type="text"
+      />
+      <button
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
