@@ -20,7 +20,6 @@ const Search = () => {
       <h1>#Hashtify</h1>
       <div className="search-form">
         <form onSubmit={handleSubmit}>
-          {/* Labels have a weird error - let's look into this together */}
           <label htmlFor="search-input">Search for hashtags{}</label>
           <input
             type="text"
