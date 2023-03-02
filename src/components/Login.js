@@ -1,6 +1,6 @@
 import React from "react";
 
-function Login() {
+const Login = () => {
   return (
     <div className="login">
       <h1>#Hashtify</h1>
@@ -10,6 +10,6 @@ function Login() {
       <button type="button">I just want to search</button>
     </div>
   );
-}
+};
 
 export default Login;
