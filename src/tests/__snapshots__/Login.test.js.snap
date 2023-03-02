@@ -19,11 +19,11 @@ exports[`renders learn react link 1`] = `
     <h2>
       Or you can search without logging in.
     </h2>
-    <button
-      type="button"
+    <a
+      href="/search"
     >
       I just want to search
-    </button>
+    </a>
   </div>
 </DocumentFragment>
 `;

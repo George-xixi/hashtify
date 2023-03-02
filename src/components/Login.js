@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -7,7 +8,7 @@ const Login = () => {
       <h2>Log in to search, create and manage your hashtags.</h2>
       <button type="button">Log in</button>
       <h2>Or you can search without logging in.</h2>
-      <button type="button">I just want to search</button>
+      <Link to="/search">I just want to search</Link>
     </div>
   );
 };

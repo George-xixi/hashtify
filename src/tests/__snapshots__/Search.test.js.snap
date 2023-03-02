@@ -8,23 +8,30 @@ exports[`renders learn react link 1`] = `
     <h1>
       #Hashtify
     </h1>
-    <form>
-      <label
-        for="search-input"
-      >
-        Search for hashtags
-      </label>
-      <input
-        id="search-input"
-        name="search-input"
-        type="text"
-      />
-      <button
-        type="submit"
-      >
-        Search
-      </button>
-    </form>
+    <div
+      class="search-form"
+    >
+      <form>
+        <label
+          for="search-input"
+        >
+          Search for hashtags
+        </label>
+        <input
+          id="search-input"
+          name="search-input"
+          type="text"
+        />
+        <button
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+    <div
+      class="search-results"
+    />
   </div>
 </DocumentFragment>
 `;
