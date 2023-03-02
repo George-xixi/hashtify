@@ -1,12 +1,18 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Login from "./Login";
+import Search from "./Search";
 import "../styles/App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <h1>Hashtag Generator</h1>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/search" element={<Search />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

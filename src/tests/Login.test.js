@@ -1,12 +1,12 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import App from "../components/App";
+import Login from "../components/Login";
 
-it("renders app", () => {
+it("renders Login component", () => {
   const { asFragment } = render(
     <BrowserRouter>
-      <App />
+      <Login />
     </BrowserRouter>
   );
   expect(asFragment()).toMatchSnapshot();

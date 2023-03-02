@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Search component 1`] = `
+<DocumentFragment>
+  <div
+    class="search"
+  >
+    <h1>
+      #Hashtify
+    </h1>
+    <div
+      class="search-form"
+    >
+      <form>
+        <label
+          for="search-input"
+        >
+          Search for hashtags
+        </label>
+        <input
+          id="search-input"
+          name="search-input"
+          type="text"
+        />
+        <button
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+    <div
+      class="search-results"
+    />
+  </div>
+</DocumentFragment>
+`;

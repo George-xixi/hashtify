@@ -1,12 +1,12 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import App from "../components/App";
+import Search from "../components/Search";
 
-it("renders app", () => {
+it("renders Search component", () => {
   const { asFragment } = render(
     <BrowserRouter>
-      <App />
+      <Search />
     </BrowserRouter>
   );
   expect(asFragment()).toMatchSnapshot();
