@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import results from "../data/results.json";
+import axios from "axios";
 import SearchResults from "./SearchResults";
 
 const Search = () => {
@@ -11,8 +11,15 @@ const Search = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSearchResults(results[searchValue]);
-    await setReady(true);
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/search/${searchValue}`
+      );
+      setSearchResults(response);
+      console.log("Search result: ", searchResults);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
