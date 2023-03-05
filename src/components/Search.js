@@ -17,6 +17,7 @@ const Search = () => {
       );
       setSearchResults(response);
       console.log("Search result: ", searchResults);
+      await setReady(true);
     } catch (error) {
       console.error(error);
     }
