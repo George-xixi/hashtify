@@ -2,7 +2,7 @@ import React from "react";
 
 const AddHashtags = () => {
   return (
-    <div className="Myhashtags">
+    <div className="add-hashtags">
       <h1>Add New #Hashtags</h1>
       <form className="add-hashtags-form">
         <label htmlFor="title">Title{}</label>

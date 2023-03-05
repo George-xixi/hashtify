@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Search from "./Search";
-import AddHashtags from "./MyHashtags";
+import AddHashtags from "./AddHashtags";
 import "../styles/App.css";
 import Navbar from "./Navbar";
 
