@@ -9,7 +9,7 @@ const AddHashtags = () => {
         <input id="title" name="title" />
         <label htmlFor="category">Category{}</label>
         <input id="category" name="category" />
-        <label htmlFor="hashtags">Category{}</label>
+        <label htmlFor="hashtags">Hashtags{}</label>
         <textarea id="hashtags" name="hashtags" />
         <button type="submit"> Save </button>
       </form>

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders app 1`] = `
+<DocumentFragment>
+  <div
+    class="navbar"
+  >
+    <p>
+      #
+    </p>
+    <div
+      class="navbar-links"
+    >
+      <ul>
+        <li>
+          <a
+            href="/search"
+          >
+            Search
+          </a>
+        </li>
+        <li>
+          <a
+            href="/my-hashtags"
+          >
+            My Hashtags
+          </a>
+        </li>
+        <li>
+          <a
+            href="/add-hashtags"
+          >
+            Add Hashtags
+          </a>
+        </li>
+      </ul>
+    </div>
+    <button
+      type="button"
+    >
+      Log in
+    </button>
+  </div>
+</DocumentFragment>
+`;

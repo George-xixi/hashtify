@@ -6,6 +6,45 @@ exports[`renders app 1`] = `
     class="App"
   >
     <div
+      class="navbar"
+    >
+      <p>
+        #
+      </p>
+      <div
+        class="navbar-links"
+      >
+        <ul>
+          <li>
+            <a
+              href="/search"
+            >
+              Search
+            </a>
+          </li>
+          <li>
+            <a
+              href="/my-hashtags"
+            >
+              My Hashtags
+            </a>
+          </li>
+          <li>
+            <a
+              href="/add-hashtags"
+            >
+              Add Hashtags
+            </a>
+          </li>
+        </ul>
+      </div>
+      <button
+        type="button"
+      >
+        Log in
+      </button>
+    </div>
+    <div
       class="login"
     >
       <h1>
