@@ -15,8 +15,7 @@ const Search = () => {
       const response = await axios.get(
         `http://localhost:3000/search/${searchValue}`
       );
-      setSearchResults(response);
-      console.log("Search result: ", searchResults);
+      setSearchResults(response.data);
       await setReady(true);
     } catch (error) {
       console.error(error);
