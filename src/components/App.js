@@ -5,6 +5,7 @@ import Search from "./Search";
 import AddHashtags from "./AddHashtags";
 import "../styles/App.css";
 import Navbar from "./Navbar";
+import MyHashtags from "./MyHashtags";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/search" element={<Search />} />
         <Route path="add-hashtags" element={<AddHashtags />} />
+        <Route path="my-hashtags" element={<MyHashtags />} />
       </Routes>
     </div>
   );
