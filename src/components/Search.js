@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import SearchResults from "./SearchResults";
+import searchHashtags from "../requests/searchHashtags";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -11,16 +11,7 @@ const Search = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.get(
-        `http://localhost:3000/search/${searchValue}`
-      );
-      setSearchResults(response);
-      console.log("Search result: ", searchResults);
-      await setReady(true);
-    } catch (error) {
-      console.error(error);
-    }
+    searchHashtags(searchValue, setSearchResults, setReady);
   };
 
   return (
