@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Login";
 import Search from "./Search";
 import AddHashtags from "./AddHashtags";
@@ -8,11 +8,29 @@ import Navbar from "./Navbar";
 import MyHashtags from "./MyHashtags";
 
 const App = () => {
+  const [userID, setUserID] = useState("");
+  const onLogin = (response) => {
+    setUserID(response.id);
+  };
+  const onLogout = () => {
+    window.FB.logout();
+    setUserID("");
+  };
+
   return (
     <div className="App">
-      <Navbar />
+      {userID && <Navbar />}
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            !userID ? (
+              <Login onLogin={onLogin} onLogout={onLogout} userID={userID} />
+            ) : (
+              <Navigate to="/search" />
+            )
+          }
+        />
         <Route path="/search" element={<Search />} />
         <Route path="add-hashtags" element={<AddHashtags />} />
         <Route path="my-hashtags" element={<MyHashtags />} />
