@@ -32,8 +32,18 @@ const App = () => {
           }
         />
         <Route path="/search" element={<Search />} />
-        <Route path="add-hashtags" element={<AddHashtags userID={userID} />} />
-        <Route path="my-hashtags" element={<MyHashtags userID={userID} />} />
+        <Route
+          path="add-hashtags"
+          element={
+            userID ? <AddHashtags userID={userID} /> : <Navigate to="/" />
+          }
+        />
+        <Route
+          path="my-hashtags"
+          element={
+            userID ? <MyHashtags userID={userID} /> : <Navigate to="/" />
+          }
+        />
       </Routes>
     </div>
   );
