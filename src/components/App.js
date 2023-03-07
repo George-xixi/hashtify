@@ -33,7 +33,7 @@ const App = () => {
         />
         <Route path="/search" element={<Search />} />
         <Route path="add-hashtags" element={<AddHashtags userID={userID} />} />
-        <Route path="my-hashtags" element={<MyHashtags />} />
+        <Route path="my-hashtags" element={<MyHashtags userID={userID} />} />
       </Routes>
     </div>
   );

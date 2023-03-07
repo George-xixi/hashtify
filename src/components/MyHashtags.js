@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import getMyHashtags from "../requests/getMyHashtags";
 
-const MyHashtags = () => {
+const MyHashtags = ({ userID }) => {
+  const [myHashtags, setMyHashtags] = useState([]);
+  const [category, setCategory] = useState("");
+  const handleFieldChange = (e) => {
+    setCategory(e.target.value);
+  };
+
+  useEffect(() => {
+    getMyHashtags(setMyHashtags);
+  }, []);
+  useEffect(() => {
+    getMyHashtags(setMyHashtags, category);
+  }, [category]);
   return (
     <div className="my-hashtags">
       <h1>#My Hashtags</h1>
       <form className="my-hashtags__form">
         <label htmlFor="category-filter">Filter Hashtags by Category{}</label>
-        <select id="category-filter">
+        <select
+          id="category-filter"
+          name="category"
+          value={category}
+          onChange={handleFieldChange}
+        >
           <option value="Music">Music</option>
           <option value="Art">Art</option>
           <option value="Travel">Travel</option>
@@ -16,20 +35,21 @@ const MyHashtags = () => {
         </select>
       </form>
       <div className="my-hashtags__display">
-        <div className="my-hashtags__card">
-          <h2>Card Title</h2>
-          <p>
-            #nowplaying #love #radio #video #live #hiphop #spotify #newmusic
-            #life #apple #rock #dance #christmas #playlist #pop #musicvideo
-            #song #applemusic #goodmusic #time #country #playing #album
-            #listening #musical #songs #christmasmusic #likedvideo
-            #officialmusic #officialmusicvideo
-          </p>
-          <button type="button">Copy</button>
-        </div>
+        {myHashtags.map((unit) => (
+          <div key={unit.id} className="my-hashtags__card">
+            <h2>{unit.title}</h2>
+            <p>{unit.hashtags}</p>
+            <button type="button">Copy</button>
+          </div>
+        ))}
+        + {userID}
       </div>
     </div>
   );
+};
+
+MyHashtags.propTypes = {
+  userID: PropTypes.string.isRequired,
 };
 
 export default MyHashtags;
