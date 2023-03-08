@@ -10,11 +10,11 @@ const MyHashtags = ({ userID }) => {
   };
 
   useEffect(() => {
-    getMyHashtags(setMyHashtags);
-  }, []);
+    getMyHashtags(setMyHashtags, userID);
+  }, [userID]);
   useEffect(() => {
-    getMyHashtags(setMyHashtags, category);
-  }, [category]);
+    getMyHashtags(setMyHashtags, userID, category);
+  }, [category, userID]);
   return (
     <div className="my-hashtags">
       <h1>#My Hashtags</h1>
