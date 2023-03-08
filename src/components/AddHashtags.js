@@ -35,13 +35,19 @@ const AddHashtags = ({ userID }) => {
           value={fields.title}
           onChange={handleFieldChange}
         />
-        <label htmlFor="category">Category{}</label>
-        <input
-          id="category"
+        <select
+          id="category-filter"
           name="category"
           value={fields.category}
           onChange={handleFieldChange}
-        />
+        >
+          <option value="Music">Music</option>
+          <option value="Art">Art</option>
+          <option value="Travel">Travel</option>
+          <option value="Art">Art</option>
+          <option value="Business">Business</option>
+          <option value="Other">Other</option>
+        </select>
         <label htmlFor="hashtags">Hashtags{}</label>
         <textarea
           id="hashtags"

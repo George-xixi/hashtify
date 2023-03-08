@@ -4,14 +4,14 @@ import getMyHashtags from "../requests/getMyHashtags";
 
 const MyHashtags = ({ userID }) => {
   const [myHashtags, setMyHashtags] = useState([]);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("All");
   const handleFieldChange = (e) => {
     setCategory(e.target.value);
   };
 
-  useEffect(() => {
-    getMyHashtags(setMyHashtags, userID);
-  }, [userID]);
+  // useEffect(() => {
+  //   getMyHashtags(setMyHashtags, userID);
+  // }, [userID]);
   useEffect(() => {
     getMyHashtags(setMyHashtags, userID, category);
   }, [category, userID]);
@@ -26,6 +26,7 @@ const MyHashtags = ({ userID }) => {
           value={category}
           onChange={handleFieldChange}
         >
+          <option value="All">All</option>
           <option value="Music">Music</option>
           <option value="Art">Art</option>
           <option value="Travel">Travel</option>
