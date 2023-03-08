@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import SearchResults from "./SearchResults";
 import searchHashtags from "../requests/searchHashtags";
+import useCopyToClipboard from "../CopyToClipboard/useCopyToClipboard";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState("");
   const [ready, setReady] = useState(false);
+  const [copyToClipboard, { success }] = useCopyToClipboard();
+
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   };
@@ -32,6 +35,9 @@ const Search = () => {
       <div className="search-results">
         {ready && <SearchResults searchResults={searchResults} />}
       </div>
+      <button type="button" onClick={() => copyToClipboard(searchResults)}>
+        {success ? "Copied" : "Copy Hashtag"}
+      </button>
     </div>
   );
 };
