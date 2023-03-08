@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+// import handleJwt from "../requests/handleJwt";
 import Login from "./Login";
 import Search from "./Search";
 import AddHashtags from "./AddHashtags";
@@ -11,6 +12,7 @@ const App = () => {
   const [userID, setUserID] = useState("");
   const onLogin = (response) => {
     setUserID(response.id);
+    // handleJwt(response.id);
   };
   const onLogout = () => {
     window.FB.logout();
