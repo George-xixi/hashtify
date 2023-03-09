@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchResults from "./SearchResults";
 import searchHashtags from "../requests/searchHashtags";
-import useCopyToClipboard from "../CopyToClipboard/useCopyToClipboard";
+import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
