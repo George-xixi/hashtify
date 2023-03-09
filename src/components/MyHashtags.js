@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import getMyHashtags from "../requests/getMyHashtags";
+import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
 
 const MyHashtags = ({ userID }) => {
   const [myHashtags, setMyHashtags] = useState([]);
   const [category, setCategory] = useState("All");
+  const [copyToClipboard] = useCopyToClipboard();
   const handleFieldChange = (e) => {
     setCategory(e.target.value);
   };
@@ -40,7 +42,12 @@ const MyHashtags = ({ userID }) => {
           <div key={unit.id} className="my-hashtags__card">
             <h2>{unit.title}</h2>
             <p>{unit.hashtags}</p>
-            <button type="button">Copy</button>
+            <button
+              type="button"
+              onClick={() => copyToClipboard(unit.hashtags)}
+            >
+              Copy
+            </button>
           </div>
         ))}
         + {userID}
