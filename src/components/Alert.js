@@ -9,7 +9,7 @@ const Alert = ({ message, success }) => {
   }
   return (
     <div className={`alert-${success ? "success" : "error"}`}>
-      {message === "Successfully saved" ? (
+      {message === "Successfully saved" || message === "Successfully copied" ? (
         <FontAwesomeIcon icon={faCheck} />
       ) : (
         <FontAwesomeIcon icon={faTimes} />
