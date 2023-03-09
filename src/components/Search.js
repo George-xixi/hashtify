@@ -7,7 +7,7 @@ const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState("");
   const [ready, setReady] = useState(false);
-  const [copyToClipboard, { success }] = useCopyToClipboard();
+  const [copyToClipboard] = useCopyToClipboard();
 
   const handleChange = (e) => {
     setSearchValue(e.target.value);
@@ -36,7 +36,7 @@ const Search = () => {
         {ready && <SearchResults searchResults={searchResults} />}
       </div>
       <button type="button" onClick={() => copyToClipboard(searchResults)}>
-        {success ? "Copied" : "Copy Hashtag"}
+        Copy
       </button>
     </div>
   );
