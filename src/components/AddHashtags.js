@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import addHashtags from "../requests/addHashtags";
+import Alert from "./Alert";
 
 const AddHashtags = ({ userID }) => {
   const initalState = {
@@ -10,12 +11,19 @@ const AddHashtags = ({ userID }) => {
       category: "",
       hashtags: "",
     },
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
   };
   const [fields, setFields] = useState(initalState.fields);
+  const [alert, setAlert] = useState(initalState.alert);
+
   const handleAddHashtag = async (e) => {
     e.preventDefault();
-    addHashtags(fields);
+    addHashtags(fields, setAlert);
     await setFields(initalState.fields);
+    setAlert(initalState.alert);
   };
   const handleFieldChange = (e) => {
     setFields({
@@ -27,6 +35,7 @@ const AddHashtags = ({ userID }) => {
   return (
     <div className="add-hashtags">
       <h1>Add New #Hashtags</h1>
+      <Alert message={alert.message} success={alert.isSuccess} />
       <form className="add-hashtags-form" onSubmit={handleAddHashtag}>
         <label htmlFor="title">Title{}</label>
         <input
