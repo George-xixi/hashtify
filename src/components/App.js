@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Login";
 import Search from "./Search";
 import AddHashtags from "./AddHashtags";
-import "../styles/App.css";
+import "../styles/app.scss";
 import Navbar from "./Navbar";
 import MyHashtags from "./MyHashtags";
 

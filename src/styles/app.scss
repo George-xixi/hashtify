@@ -1,0 +1,6 @@
+@use "variables" as v;
+
+* {
+  background-color: v.$background-color;
+  color: v.$text-color-1;
+}

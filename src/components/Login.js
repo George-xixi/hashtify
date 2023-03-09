@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FacebookLogin from "react-facebook-login";
+import "../styles/login.scss";
 import { FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -23,7 +24,9 @@ const Login = ({ onLogin, onLogout, userID }) => {
         />
       )}
       <h2>Or you can search without logging in.</h2>
-      <Link to="/search">I just want to search</Link>
+      <Link to="/search" className="search-only-button">
+        I just want to search
+      </Link>
     </div>
   );
 };
