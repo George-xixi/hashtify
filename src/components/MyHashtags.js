@@ -2,11 +2,20 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import getMyHashtags from "../requests/getMyHashtags";
 import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
+import Alert from "./Alert";
 
 const MyHashtags = ({ userID }) => {
   const [myHashtags, setMyHashtags] = useState([]);
   const [category, setCategory] = useState("All");
   const [copyToClipboard] = useCopyToClipboard();
+  const initalState = {
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
+  };
+  const [alert, setAlert] = useState(initalState.alert);
+
   const handleFieldChange = (e) => {
     setCategory(e.target.value);
   };
@@ -37,6 +46,7 @@ const MyHashtags = ({ userID }) => {
           <option value="Other">Other</option>
         </select>
       </form>
+      <Alert message={alert.message} success={alert.isSuccess} />
       <div className="my-hashtags__display">
         {myHashtags.map((unit) => (
           <div key={unit.id} className="my-hashtags__card">
@@ -44,7 +54,13 @@ const MyHashtags = ({ userID }) => {
             <p>{unit.hashtags}</p>
             <button
               type="button"
-              onClick={() => copyToClipboard(unit.hashtags)}
+              onClick={() => {
+                copyToClipboard(unit.hashtags);
+                setAlert({
+                  message: "Successfully copied",
+                  isSuccess: true,
+                });
+              }}
             >
               Copy
             </button>
