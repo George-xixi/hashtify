@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import addHashtags from "../requests/addHashtags";
 import Alert from "./Alert";
 
-const AddHashtags = ({ userID }) => {
+const AddHashtags = ({ userID, searchValue, searchResults }) => {
   const initalState = {
     fields: {
       userId: userID,
-      title: "",
+      title: searchValue || "",
       category: "Music",
-      hashtags: "",
+      hashtags: searchResults || "",
     },
     alert: {
       message: "",
@@ -74,6 +74,8 @@ const AddHashtags = ({ userID }) => {
 
 AddHashtags.propTypes = {
   userID: PropTypes.string.isRequired,
+  searchValue: PropTypes.string.isRequired,
+  searchResults: PropTypes.string.isRequired,
 };
 
 export default AddHashtags;

@@ -10,6 +10,8 @@ import MyHashtags from "./MyHashtags";
 
 const App = () => {
   const [userID, setUserID] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResults, setSearchResults] = useState("");
   const onLogin = (response) => {
     setUserID(response.id);
     handleJwt(response.id);
@@ -33,11 +35,29 @@ const App = () => {
             )
           }
         />
-        <Route path="/search" element={<Search />} />
+        <Route
+          path="/search"
+          element={
+            <Search
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+              searchResults={searchResults}
+              setSearchResults={setSearchResults}
+            />
+          }
+        />
         <Route
           path="add-hashtags"
           element={
-            userID ? <AddHashtags userID={userID} /> : <Navigate to="/" />
+            userID ? (
+              <AddHashtags
+                userID={userID}
+                searchValue={searchValue}
+                searchResults={searchResults}
+              />
+            ) : (
+              <Navigate to="/" />
+            )
           }
         />
         <Route

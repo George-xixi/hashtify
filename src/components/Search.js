@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import SearchResults from "./SearchResults";
 import searchHashtags from "../requests/searchHashtags";
 import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
 import Alert from "./Alert";
 
-const Search = () => {
-  const [searchValue, setSearchValue] = useState("");
-  const [searchResults, setSearchResults] = useState("");
+const Search = ({
+  searchValue,
+  setSearchValue,
+  searchResults,
+  setSearchResults,
+}) => {
+  const navigate = useNavigate();
   const [ready, setReady] = useState(false);
   const [copyToClipboard] = useCopyToClipboard();
   const initalState = {
@@ -16,7 +22,6 @@ const Search = () => {
     },
   };
   const [alert, setAlert] = useState(initalState.alert);
-
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   };
@@ -56,9 +61,19 @@ const Search = () => {
       >
         Copy
       </button>
+      <button type="button" onClick={() => navigate("/add-hashtags")}>
+        Save
+      </button>
       <Alert message={alert.message} success={alert.isSuccess} />
     </div>
   );
+};
+
+Search.propTypes = {
+  searchValue: PropTypes.string.isRequired,
+  setSearchValue: PropTypes.func.isRequired,
+  searchResults: PropTypes.string.isRequired,
+  setSearchResults: PropTypes.func.isRequired,
 };
 
 export default Search;

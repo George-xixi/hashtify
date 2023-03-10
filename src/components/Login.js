@@ -16,7 +16,7 @@ const Login = ({ onLogin, onLogout, userID }) => {
         </button>
       ) : (
         <FacebookLogin
-          appId="519196123675566"
+          appId="205009115458270"
           callback={onLogin}
           userID={userID}
           cssClass="my-facebook-button-class"
