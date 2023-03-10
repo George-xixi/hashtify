@@ -2,12 +2,20 @@ import React, { useState } from "react";
 import SearchResults from "./SearchResults";
 import searchHashtags from "../requests/searchHashtags";
 import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
+import Alert from "./Alert";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState("");
   const [ready, setReady] = useState(false);
-  const [copyToClipboard, { success }] = useCopyToClipboard();
+  const [copyToClipboard] = useCopyToClipboard();
+  const initalState = {
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
+  };
+  const [alert, setAlert] = useState(initalState.alert);
 
   const handleChange = (e) => {
     setSearchValue(e.target.value);
@@ -15,6 +23,7 @@ const Search = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     searchHashtags(searchValue, setSearchResults, setReady);
+    setAlert(initalState.alert);
   };
 
   return (
@@ -35,9 +44,19 @@ const Search = () => {
       <div className="search-results">
         {ready && <SearchResults searchResults={searchResults} />}
       </div>
-      <button type="button" onClick={() => copyToClipboard(searchResults)}>
-        {success ? "Copied" : "Copy Hashtag"}
+      <button
+        type="button"
+        onClick={() => {
+          copyToClipboard(searchResults);
+          setAlert({
+            message: "Successfully copied",
+            isSuccess: true,
+          });
+        }}
+      >
+        Copy
       </button>
+      <Alert message={alert.message} success={alert.isSuccess} />
     </div>
   );
 };
