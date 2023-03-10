@@ -8,7 +8,7 @@ const AddHashtags = ({ userID }) => {
     fields: {
       userId: userID,
       title: "",
-      category: "",
+      category: "Music",
       hashtags: "",
     },
     alert: {
@@ -52,9 +52,11 @@ const AddHashtags = ({ userID }) => {
         >
           <option value="Music">Music</option>
           <option value="Art">Art</option>
+          <option value="Beauty">Beauty</option>
           <option value="Travel">Travel</option>
-          <option value="Art">Art</option>
+          <option value="Food">Food</option>
           <option value="Business">Business</option>
+          <option value="Sport">Sport</option>
           <option value="Other">Other</option>
         </select>
         <label htmlFor="hashtags">Hashtags{}</label>

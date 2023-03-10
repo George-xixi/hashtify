@@ -40,9 +40,11 @@ const MyHashtags = ({ userID }) => {
           <option value="All">All</option>
           <option value="Music">Music</option>
           <option value="Art">Art</option>
+          <option value="Beauty">Beauty</option>
           <option value="Travel">Travel</option>
-          <option value="Art">Art</option>
+          <option value="Food">Food</option>
           <option value="Business">Business</option>
+          <option value="Sport">Sport</option>
           <option value="Other">Other</option>
         </select>
       </form>

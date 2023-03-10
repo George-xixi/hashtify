@@ -13,16 +13,17 @@ const getMyHashtags = (setMyHashtags, userID, category) => {
     } catch (e) {
       console.log(e);
     }
-  }
-  try {
-    axios
-      .get(`http://localhost:3000/hashtags/${userID}/${category}`)
-      .then((res) => {
-        setMyHashtags(res.data);
-        console.log(res.data, "res.data");
-      });
-  } catch (e) {
-    console.log(e);
+  } else {
+    try {
+      axios
+        .get(`http://localhost:3000/hashtags/${userID}/${category}`)
+        .then((res) => {
+          setMyHashtags(res.data);
+          console.log(res.data, "res.data");
+        });
+    } catch (e) {
+      console.log(e);
+    }
   }
 };
 
