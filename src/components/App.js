@@ -39,6 +39,7 @@ const App = () => {
           path="/search"
           element={
             <Search
+              userID={userID}
               searchValue={searchValue}
               setSearchValue={setSearchValue}
               searchResults={searchResults}

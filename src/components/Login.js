@@ -8,16 +8,18 @@ import { Link } from "react-router-dom";
 const Login = ({ onLogin, userID }) => {
   return (
     <div className="login">
-      <h1>#Hashtify</h1>
-      <h2>Log in to search, create and manage your hashtags.</h2>
+      <h1 className="login__header">#Hashtify</h1>
+      <h2 className="login__header">
+        Log in to search, create and manage your hashtags.
+      </h2>
       <FacebookLogin
-        appId="813549316783868"
+        appId="205009115458270"
         callback={onLogin}
         userID={userID}
         cssClass="my-facebook-button-class"
         icon={<FaFacebookF className="fb-icon" />}
       />
-      <h2>Or you can search without logging in.</h2>
+      <h2 className="login__header">Or you can search without logging in.</h2>
       <Link to="/search" className="search-only-button">
         I just want to search
       </Link>

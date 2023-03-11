@@ -13,14 +13,15 @@
 }
 
 .login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include v.center-items;
+  .login__header {
+    text-align: center;
+  }
 }
 
+
 .my-facebook-button-class{
-@include login-button();
+@include login-button;
   background-color: v.$facebook-blue;
   text-transform:lowercase;
   .fb-icon {

@@ -1,0 +1,32 @@
+@use "variables" as v;
+
+.search {
+  @include v.center-items;
+  .search-form > form {
+    @include v.center-items;
+    *{
+      margin-block: 5px;
+    }
+  }
+}
+
+.search-bar > * {
+  border: 0;
+  background-color: white;
+  height: 40px;
+  font-size: 20px;
+}
+
+.search-bar__input {
+  border-top-left-radius: v.$border-radius;
+  border-bottom-left-radius: v.$border-radius;
+  padding-left: 10px;
+}
+
+.search-bar__button {
+  border-top-right-radius: v.$border-radius;
+  border-bottom-right-radius: v.$border-radius;
+  cursor: pointer;
+  box-sizing: content-box;
+  font-weight: 500;
+}

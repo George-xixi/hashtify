@@ -3,3 +3,10 @@ $background-color: #ffc452;
 $text-color-1: #3d3434;
 $facebook-blue: #3975ea;
 $border-radius: 10px;
+
+
+@mixin center-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
