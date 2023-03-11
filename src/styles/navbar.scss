@@ -1,0 +1,23 @@
+@use "variables" as v;
+
+.navbar {
+  @include v.center-items;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding-top: 10px;
+}
+
+.narbar-links__item {
+  list-style-type: none;
+}
+  
+.narbar-links__text {
+  text-decoration: none;
+  color: rgb(55, 51, 51);
+  font-size: 20px;
+}
+  

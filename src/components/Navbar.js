@@ -1,21 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "../styles/navbar.scss";
 
 const Navbar = ({ userID, onLogout }) => {
   return (
     <div className="navbar">
-      <p>#</p>
-      <div className="navbar-links">
-        <ul>
-          <li>
-            <Link to="/search">Search</Link>
+      <div className="navbar-container">
+        <ul className="navbar-links">
+          <li className="narbar-links__item">
+            <Link className="narbar-links__text" to="/search">
+              Search
+            </Link>
           </li>
-          <li>
-            <Link to="/my-hashtags">My Hashtags</Link>
+          <li className="narbar-links__item">
+            <Link className="narbar-links__text" to="/my-hashtags">
+              My Hashtags
+            </Link>
           </li>
-          <li>
-            <Link to="/add-hashtags">Add Hashtags</Link>
+          <li className="narbar-links__item">
+            <Link className="narbar-links__text" to="/add-hashtags">
+              Add Hashtags
+            </Link>
           </li>
         </ul>
       </div>
