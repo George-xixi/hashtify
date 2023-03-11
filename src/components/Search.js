@@ -15,6 +15,7 @@ const Search = ({
   setSearchResults,
 }) => {
   const navigate = useNavigate();
+  const [renderSave, setRenderSave] = useState(false);
   const [ready, setReady] = useState(false);
   const [copyToClipboard] = useCopyToClipboard();
   const initalState = {
@@ -29,7 +30,13 @@ const Search = ({
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    searchHashtags(searchValue, setSearchResults, setReady);
+    searchHashtags(
+      searchValue,
+      setSearchResults,
+      setReady,
+      setRenderSave,
+      userID
+    );
     setAlert(initalState.alert);
   };
 
@@ -56,8 +63,8 @@ const Search = ({
       <div className="search-results">
         {ready && <SearchResults searchResults={searchResults} />}
       </div>
-      {userID && ready === true && (
-        <div className="search__buttons">
+      <div className="search__buttons">
+        {ready && (
           <button
             type="button"
             onClick={() => {
@@ -70,11 +77,13 @@ const Search = ({
           >
             Copy
           </button>
+        )}
+        {renderSave && (
           <button type="button" onClick={() => navigate("/add-hashtags")}>
             Save
           </button>
-        </div>
-      )}
+        )}
+      </div>
       <Alert message={alert.message} success={alert.isSuccess} />
     </div>
   );
