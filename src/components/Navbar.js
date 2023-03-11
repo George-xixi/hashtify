@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ onLogout }) => {
   return (
     <div className="navbar">
       <p>#</p>
@@ -19,8 +20,15 @@ const Navbar = () => {
         </ul>
       </div>
       <button type="button">Log in</button>
+      <button className="sign-out-btn" type="button" onClick={onLogout}>
+        Sign out
+      </button>
     </div>
   );
 };
 
 export default Navbar;
+
+Navbar.propTypes = {
+  onLogout: PropTypes.string.isRequired,
+};

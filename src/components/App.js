@@ -23,13 +23,13 @@ const App = () => {
 
   return (
     <div className="App">
-      {userID && <Navbar />}
+      {userID && <Navbar onLogout={onLogout} />}
       <Routes>
         <Route
           path="/"
           element={
             !userID ? (
-              <Login onLogin={onLogin} onLogout={onLogout} userID={userID} />
+              <Login onLogin={onLogin} userID={userID} />
             ) : (
               <Navigate to="/search" />
             )
