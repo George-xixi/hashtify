@@ -30,5 +30,5 @@ const Navbar = ({ onLogout }) => {
 export default Navbar;
 
 Navbar.propTypes = {
-  onLogout: PropTypes.string.isRequired,
+  onLogout: PropTypes.func.isRequired,
 };
