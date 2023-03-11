@@ -12,6 +12,13 @@
   cursor: pointer;
 }
 
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .my-facebook-button-class{
 @include login-button();
   background-color: v.$facebook-blue;
@@ -28,4 +35,5 @@
   @include login-button();
   background-color: #3B42DE;
   text-decoration: none;
+  width: 160px;
 }

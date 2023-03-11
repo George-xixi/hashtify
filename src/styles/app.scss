@@ -4,3 +4,9 @@
   background-color: v.$background-color;
   color: v.$text-color-1;
 }
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
