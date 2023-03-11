@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {userID && <Navbar onLogout={onLogout} />}
+      <Navbar onLogout={onLogout} userID={userID} />
       <Routes>
         <Route
           path="/"
@@ -53,7 +53,9 @@ const App = () => {
               <AddHashtags
                 userID={userID}
                 searchValue={searchValue}
+                setSearchValue={setSearchValue}
                 searchResults={searchResults}
+                setSearchResults={setSearchResults}
               />
             ) : (
               <Navigate to="/" />
