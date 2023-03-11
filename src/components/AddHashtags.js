@@ -3,13 +3,20 @@ import PropTypes from "prop-types";
 import addHashtags from "../requests/addHashtags";
 import Alert from "./Alert";
 
-const AddHashtags = ({ userID, searchValue, searchResults }) => {
+const AddHashtags = ({
+  userID,
+  searchValue,
+  searchResults,
+  setSearchResults,
+  setSearchValue,
+}) => {
+  // if no search is done, search value and search result will be an empty string.
   const initalState = {
     fields: {
       userId: userID,
-      title: searchValue || "",
+      title: searchValue,
       category: "Music",
-      hashtags: searchResults || "",
+      hashtags: searchResults,
     },
     alert: {
       message: "",
@@ -22,8 +29,9 @@ const AddHashtags = ({ userID, searchValue, searchResults }) => {
   const handleAddHashtag = async (e) => {
     e.preventDefault();
     addHashtags(fields, setAlert);
-    await setFields(initalState.fields);
     setAlert(initalState.alert);
+    setSearchResults("");
+    setSearchValue("");
   };
   const handleFieldChange = (e) => {
     setFields({
@@ -76,6 +84,8 @@ AddHashtags.propTypes = {
   userID: PropTypes.string.isRequired,
   searchValue: PropTypes.string.isRequired,
   searchResults: PropTypes.string.isRequired,
+  setSearchResults: PropTypes.func.isRequired,
+  setSearchValue: PropTypes.func.isRequired,
 };
 
 export default AddHashtags;

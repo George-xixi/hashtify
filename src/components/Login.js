@@ -5,24 +5,18 @@ import "../styles/login.scss";
 import { FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Login = ({ onLogin, onLogout, userID }) => {
+const Login = ({ onLogin, userID }) => {
   return (
     <div className="login">
       <h1>#Hashtify</h1>
       <h2>Log in to search, create and manage your hashtags.</h2>
-      {userID ? (
-        <button className="fb-logout-button" type="button" onClick={onLogout}>
-          Sign out
-        </button>
-      ) : (
-        <FacebookLogin
-          appId="205009115458270"
-          callback={onLogin}
-          userID={userID}
-          cssClass="my-facebook-button-class"
-          icon={<FaFacebookF className="fb-icon" />}
-        />
-      )}
+      <FacebookLogin
+        appId="813549316783868"
+        callback={onLogin}
+        userID={userID}
+        cssClass="my-facebook-button-class"
+        icon={<FaFacebookF className="fb-icon" />}
+      />
       <h2>Or you can search without logging in.</h2>
       <Link to="/search" className="search-only-button">
         I just want to search
@@ -33,7 +27,6 @@ const Login = ({ onLogin, onLogout, userID }) => {
 
 Login.propTypes = {
   onLogin: PropTypes.func.isRequired,
-  onLogout: PropTypes.func.isRequired,
   userID: PropTypes.string.isRequired,
 };
 export default Login;
