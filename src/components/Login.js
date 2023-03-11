@@ -13,7 +13,7 @@ const Login = ({ onLogin, userID }) => {
         Log in to search, create and manage your hashtags.
       </h2>
       <FacebookLogin
-        appId="205009115458270"
+        appId="813549316783868"
         callback={onLogin}
         userID={userID}
         cssClass="my-facebook-button-class"

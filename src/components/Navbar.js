@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ onLogout }) => {
+const Navbar = ({ userID, onLogout }) => {
   return (
     <div className="navbar">
       <p>#</p>
@@ -19,10 +19,11 @@ const Navbar = ({ onLogout }) => {
           </li>
         </ul>
       </div>
-      <button type="button">Log in</button>
-      <button className="sign-out-btn" type="button" onClick={onLogout}>
-        Sign out
-      </button>
+      {userID && (
+        <button className="sign-out-btn" type="button" onClick={onLogout}>
+          Sign out
+        </button>
+      )}
     </div>
   );
 };
@@ -31,4 +32,5 @@ export default Navbar;
 
 Navbar.propTypes = {
   onLogout: PropTypes.func.isRequired,
+  userID: PropTypes.string.isRequired,
 };
