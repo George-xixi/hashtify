@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import "../styles/alert.scss";
 
 const Alert = ({ message, success }) => {
   if (!message) {
@@ -10,9 +11,9 @@ const Alert = ({ message, success }) => {
   return (
     <div className={`alert-${success ? "success" : "error"}`}>
       {message === "Successfully saved" || message === "Successfully copied" ? (
-        <FontAwesomeIcon icon={faCheck} />
+        <FontAwesomeIcon className="icon" icon={faCheck} />
       ) : (
-        <FontAwesomeIcon icon={faTimes} />
+        <FontAwesomeIcon className="icon" icon={faTimes} />
       )}
       {message}
     </div>

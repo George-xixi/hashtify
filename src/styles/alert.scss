@@ -1,2 +1,13 @@
 @use "variables" as v;
 
+.alert-success {
+  color: rgb(9, 103, 24);
+}
+
+.alert-error {
+    color: rgb(123, 9, 20);
+}
+
+.icon {
+  padding-right: 5px;
+}
