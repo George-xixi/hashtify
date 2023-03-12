@@ -7,7 +7,10 @@ import logo from "../styles/images/logo.png";
 const Navbar = ({ userID, onLogout }) => {
   return (
     <div className="navbar">
-      <img src={logo} className="logo" alt="logo" />
+      <Link to="/">
+        <img src={logo} className="logo" alt="logo" />
+      </Link>
+
       <ul className="navbar-links">
         <li className="narbar-links__item">
           <Link className="narbar-links__text" to="/search">
