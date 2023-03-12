@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../styles/search.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy, faSave } from "@fortawesome/free-solid-svg-icons";
 import SearchResults from "./SearchResults";
 import searchHashtags from "../requests/searchHashtags";
 import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
@@ -42,10 +44,11 @@ const Search = ({
 
   return (
     <div className="search">
-      <h1>#Hashtify</h1>
       <div className="search-form">
         <form onSubmit={handleSubmit}>
-          <label htmlFor="search-input">Search for hashtags{}</label>
+          <label htmlFor="search-input">
+            <h2>Search for hashtags{}</h2>
+          </label>
           <div className="search-bar">
             <input
               className="search-bar__input"
@@ -60,12 +63,13 @@ const Search = ({
           </div>
         </form>
       </div>
-      <div className="search-results">
+      <div className="search-results-container">
         {ready && <SearchResults searchResults={searchResults} />}
       </div>
-      <div className="search__buttons">
+      <div className="search-button-container">
         {ready && (
           <button
+            className="search__buttons"
             type="button"
             onClick={() => {
               copyToClipboard(searchResults);
@@ -75,16 +79,22 @@ const Search = ({
               });
             }}
           >
-            Copy
+            <FontAwesomeIcon className="copy-icon" icon={faCopy} />
           </button>
         )}
         {renderSave && (
-          <button type="button" onClick={() => navigate("/add-hashtags")}>
-            Save
+          <button
+            className="save__buttons"
+            type="button"
+            onClick={() => navigate("/add-hashtags")}
+          >
+            <FontAwesomeIcon className="save-icon" icon={faSave} />
           </button>
         )}
       </div>
-      <Alert message={alert.message} success={alert.isSuccess} />
+      <div className="alert-message">
+        <Alert message={alert.message} success={alert.isSuccess} />
+      </div>
     </div>
   );
 };

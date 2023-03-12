@@ -13,6 +13,7 @@
 .search-bar > * {
   border: 0;
   background-color: white;
+  box-shadow: rgba(43, 41, 36, 0.886) 1px 1px 2px 2px;
   height: 40px;
   font-size: 20px;
 }
@@ -29,4 +30,37 @@
   cursor: pointer;
   box-sizing: content-box;
   font-weight: 500;
+  color: rgb(248, 251, 251);
+  background-color: rgba(84, 78, 66, 0.961);
+}
+
+.search-results-container {
+  padding: 20px 100px;
+}
+
+.search-results {
+  color: rgb(6, 27, 27);
+  background-color: rgba(255, 255, 255, 0.942);
+  box-shadow: rgba(81, 79, 71, 0.886) 1px 1px 2px 2px;
+  border-radius: 10px;
+  padding: 20px 20px;
+  height: 200px;
+  width: 400px;
+}
+
+.search-button-container {
+padding-left: 350px;
+
+}
+
+.search__buttons {
+  @include v.button;
+}
+
+.save__buttons {
+  @include v.button;
+}
+
+.alert-message {
+  @include v.alert-message;
 }

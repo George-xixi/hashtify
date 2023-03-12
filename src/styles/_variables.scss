@@ -10,3 +10,15 @@ $border-radius: 10px;
   flex-direction: column;
   align-items: center;
 }
+
+@mixin button {
+  border: transparent;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+@mixin alert-message {
+  padding-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
