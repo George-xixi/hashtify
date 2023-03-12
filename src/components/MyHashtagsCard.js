@@ -38,7 +38,7 @@ const MyHashtagsCard = ({
           onRemoveHashtag(hashtagId);
         }}
       >
-        Removed
+        Remove
       </button>
       <Alert message={alert.message} success={alert.isSuccess} />
     </div>
