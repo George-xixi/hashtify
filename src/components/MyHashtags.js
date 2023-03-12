@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 import getMyHashtags from "../requests/getMyHashtags";
 import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
 import Alert from "./Alert";
+import MyHashtagsCard from "./MyHashtagsCard";
 
 const MyHashtags = ({ userID }) => {
   const [myHashtags, setMyHashtags] = useState([]);
   const [category, setCategory] = useState("All");
   const [copyToClipboard] = useCopyToClipboard();
-  const initalState = {
-    alert: {
-      message: "",
-      isSuccess: false,
-    },
-  };
-  const [alert, setAlert] = useState(initalState.alert);
 
   const handleFieldChange = (e) => {
     setCategory(e.target.value);
@@ -26,6 +21,22 @@ const MyHashtags = ({ userID }) => {
   useEffect(() => {
     getMyHashtags(setMyHashtags, userID, category);
   }, [category, userID]);
+
+  const handleRemovedHashtag = (hashtagId) => {
+    try {
+      axios.delete(`http://localhost:3000/hashtags/${hashtagId}`).then(() => {
+        axios
+          .get(`http://localhost:3000/hashtags/${userID}/hashtag`)
+          .then((res) => {
+            setMyHashtags(res.data);
+            console.log(res.data, "res.data");
+          });
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className="my-hashtags">
       <h1>#My Hashtags</h1>
@@ -51,21 +62,15 @@ const MyHashtags = ({ userID }) => {
       <Alert message={alert.message} success={alert.isSuccess} />
       <div className="my-hashtags__display">
         {myHashtags.map((unit) => (
-          <div key={unit.id} className="my-hashtags__card">
-            <h2>{unit.title}</h2>
-            <p>{unit.hashtags}</p>
-            <button
-              type="button"
-              onClick={() => {
-                copyToClipboard(unit.hashtags);
-                setAlert({
-                  message: "Successfully copied",
-                  isSuccess: true,
-                });
-              }}
-            >
-              Copy
-            </button>
+          <div key={unit.id} className="item">
+            <MyHashtagsCard
+              userID={userID}
+              hashtagId={unit.id}
+              title={unit.title}
+              hashtags={unit.hashtags}
+              onCopyHashtag={() => copyToClipboard(unit.hashtags)}
+              onRemoveHashtag={handleRemovedHashtag}
+            />
           </div>
         ))}
         + {userID}
