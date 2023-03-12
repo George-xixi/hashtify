@@ -4,11 +4,12 @@ import FacebookLogin from "react-facebook-login";
 import "../styles/login.scss";
 import { FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import header from "../styles/images/header.png";
 
 const Login = ({ onLogin, userID }) => {
   return (
     <div className="login">
-      <h1 className="login__header">#Hashtify</h1>
+      <img src={header} alt="header" />
       <h2 className="login__header">
         Log in to search, create and manage your hashtags.
       </h2>

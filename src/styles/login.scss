@@ -10,6 +10,8 @@
   padding: 10px 10px;
   font-weight: 800;
   cursor: pointer;
+  width: 200px;
+  height: 40px;
 }
 
 .login {
@@ -17,6 +19,12 @@
   .login__header {
     text-align: center;
   }
+}
+
+img {
+  height: 200px;
+  width: 450px;
+  padding-bottom: 20px;
 }
 
 
@@ -37,4 +45,6 @@
   background-color: #3B42DE;
   text-decoration: none;
   width: 160px;
+  height: 20px;
+  padding-left: 25px;
 }
