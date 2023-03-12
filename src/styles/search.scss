@@ -2,6 +2,7 @@
 
 .search {
   @include v.center-items;
+  text-shadow: 1px 1px #f4eeee;
   .search-form > form {
     @include v.center-items;
     *{
