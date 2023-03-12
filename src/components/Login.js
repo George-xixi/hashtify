@@ -11,7 +11,7 @@ const Login = ({ onLogin, userID }) => {
     <div className="login">
       <img src={header} alt="header" />
       <h2 className="login__header">
-        Log in to search, create and manage your hashtags.
+        Log in to search, create and manage your hashtags
       </h2>
       <FacebookLogin
         appId="813549316783868"
@@ -20,7 +20,7 @@ const Login = ({ onLogin, userID }) => {
         cssClass="my-facebook-button-class"
         icon={<FaFacebookF className="fb-icon" />}
       />
-      <h2 className="login__header">Or you can search without logging in.</h2>
+      <h2 className="login__header">Or you can search without logging in</h2>
       <Link to="/search" className="search-only-button">
         I just want to search
       </Link>
