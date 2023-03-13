@@ -45,4 +45,12 @@ const MyHashtagsCard = ({
   );
 };
 
+MyHashtagsCard.propTypes = {
+  hashtagId: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  hashtags: PropTypes.string.isRequired,
+  onCopyHashtag: PropTypes.func.isRequired,
+  onRemoveHashtag: PropTypes.func.isRequired,
+};
+
 export default MyHashtagsCard;
