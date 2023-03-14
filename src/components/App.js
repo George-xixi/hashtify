@@ -14,6 +14,7 @@ const App = () => {
   const [userID, setUserID] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState("");
+  const [statsResults, setStatsResults] = useState({});
   useEffect(() => {
     const token = Cookie.get("userToken");
     if (token) {
@@ -21,7 +22,7 @@ const App = () => {
       setUserID(decodedToken.userId);
     }
   }, []);
-
+  
   const onLogin = (response) => {
     setUserID(response.id);
     handleJwt(response.id);
@@ -55,6 +56,8 @@ const App = () => {
               setSearchValue={setSearchValue}
               searchResults={searchResults}
               setSearchResults={setSearchResults}
+              statsResults={statsResults}
+              setStatsResults={setStatsResults}
             />
           }
         />

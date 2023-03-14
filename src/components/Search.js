@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 import "../styles/search.scss";
 import { FaRegCopy, FaRegSave } from "react-icons/fa";
 import SearchResults from "./SearchResults";
+import StatsResults from "./StatsResults";
 import searchHashtags from "../requests/searchHashtags";
+import getStatsResult from "../requests/getStatsResult";
 import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
 import Alert from "./Alert";
 
@@ -14,6 +16,8 @@ const Search = ({
   setSearchValue,
   searchResults,
   setSearchResults,
+  statsResults,
+  setStatsResults,
 }) => {
   const navigate = useNavigate();
   const [renderSave, setRenderSave] = useState(false);
@@ -38,6 +42,7 @@ const Search = ({
       setRenderSave,
       userID
     );
+    getStatsResult(searchValue, setStatsResults, setReady);
     setAlert(initalState.alert);
   };
 
@@ -64,10 +69,13 @@ const Search = ({
       </div>
       <div className="search-results-container">
         {ready && (
-          <SearchResults
-            searchResults={searchResults}
-            searchValue={searchValue}
-          />
+          <>
+            <SearchResults
+              searchResults={searchResults}
+              searchValue={searchValue}
+            />
+            <StatsResults statsResults={statsResults} />
+          </>
         )}
       </div>
       <div className="search-button-container">
@@ -109,6 +117,8 @@ Search.propTypes = {
   setSearchValue: PropTypes.func.isRequired,
   searchResults: PropTypes.string.isRequired,
   setSearchResults: PropTypes.func.isRequired,
+  setStatsResults: PropTypes.func.isRequired,
+  statsResults: PropTypes.string.isRequired,
 };
 
 export default Search;
