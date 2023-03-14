@@ -2,6 +2,7 @@
 
 .search {
   @include v.center-items;
+  margin-top: 50px;
   .search-form > form {
     @include v.center-items;
     *{
@@ -22,7 +23,6 @@
 
 .search-bar > * {
   border: 0;
-  background-color: v.$content-background;
   height: 40px;
   font-size: 20px;
   font-weight: 500;
@@ -32,6 +32,8 @@
 .search-bar__input {
   border-top-left-radius: v.$border-radius;
   border-bottom-left-radius: v.$border-radius;
+  background-color: v.$text-color-1;
+  color: v.$content-background;
   padding-left: 10px;
   width: 82%;
 }
@@ -39,8 +41,8 @@
 .search-bar__button {
   border-top-right-radius: v.$border-radius;
   border-bottom-right-radius: v.$border-radius;
-  background-color: v.$text-color-1;
-  color: v.$content-background;
+  background-color: v.$content-background;
+  color:v.$text-color-1;
   cursor: pointer;
   width: 18%;
 }
@@ -51,7 +53,8 @@
 
 .search-results {
   box-sizing: border-box;
-  background-color: v.$content-background;
+  background-color: v.$text-color-1;
+  color: v.$content-background;
   border-radius: v.$border-radius;
   padding: 20px 20px;
   max-width: 460px;
@@ -61,6 +64,7 @@
 .search-results__title {
   font-size: 30px;
   background-color: inherit;
+  color: inherit;
   margin-top: 5px;
   margin-bottom: 15px;
 

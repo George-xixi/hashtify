@@ -3,30 +3,41 @@
 @mixin login-button {
   color: white;
   font-size: 15px;
-  border: 0;
+  border: 2px solid white;
   border-radius: v.$border-radius;
-  margin-right:5px;
   font-family: inherit;
+  font-size: 20px;
   padding: 10px 10px;
   font-weight: 800;
   cursor: pointer;
-  width: 200px;
-  height: 40px;
+  width: 250px;
 }
 
 .login {
   @include v.center-items;
+  h1 {
+    font-size: 60px;
+    font-weight: 900;
+    margin-top: 30px;
+  } 
   .login__header {
     text-align: center;
+    font-size: 30px;
+    margin-top: 25px;
   }
 }
 
-img {
-  height: 200px;
-  width: 450px;
-  padding-bottom: 20px;
+.login-img-container {
+  height: fit-content;
+  background-color: v.$text-color-1;
+  border-radius: v.$border-radius;
+  img {
+    object-fit: cover;
+    max-width: 200px;
+    background-color: transparent;
+    margin: 20px;
+  }
 }
-
 
 .my-facebook-button-class{
 @include login-button;
@@ -34,17 +45,19 @@ img {
   text-transform:lowercase;
   .fb-icon {
     background-color: v.$facebook-blue;
+    vertical-align: -2px;
+    padding-right: 3px;
     * {
       color: white;
+      
     }
   }
 }
 
 .search-only-button {
   @include login-button();
-  background-color: #3B42DE;
+  background-color: #2f2e2e;
   text-decoration: none;
-  width: 160px;
-  height: 20px;
   padding-left: 25px;
+  box-sizing: border-box;
 }

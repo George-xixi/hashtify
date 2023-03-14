@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import addHashtags from "../requests/addHashtags";
 import Alert from "./Alert";
+import "../styles/add-hashtags.scss";
 
 const AddHashtags = ({
   userID,
@@ -52,6 +53,7 @@ const AddHashtags = ({
           value={fields.title}
           onChange={handleFieldChange}
         />
+        <label htmlFor="category-filter">Category{}</label>
         <select
           id="category-filter"
           name="category"

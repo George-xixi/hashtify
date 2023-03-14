@@ -2,14 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/navbar.scss";
-import logo from "../styles/images/logo.png";
 
 const Navbar = ({ userID, onLogout }) => {
   const navigate = useNavigate();
   return (
     <div className="navbar">
-      <Link to="/">
-        <img src={logo} className="logo" alt="logo" />
+      <Link to="/" className="navbar__logo">
+        <p>#Hashtify</p>
       </Link>
       <ul className="navbar-links">
         <li className="narbar-links__item">
