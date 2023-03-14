@@ -1,6 +1,7 @@
 $font: "inter";
 $background-color: #ffc452;
 $text-color-1: #3d3434;
+$content-background: #ffffff;
 $facebook-blue: #3975ea;
 $border-radius: 10px;
 
@@ -12,9 +13,19 @@ $border-radius: 10px;
 }
 
 @mixin button {
-  border: transparent;
-  font-size: 25px;
+  border: 3px solid $text-color-1;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: $text-color-1;
+  color: $content-background;
+  border-radius: $border-radius;
+  padding: 7px;
+  margin-inline: 10px;
   cursor: pointer;
+  * {
+    background-color: $text-color-1;
+    color: $content-background;
+  }
 }
 
 @mixin alert-message {

@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/navbar.scss";
 import logo from "../styles/images/logo.png";
 
 const Navbar = ({ userID, onLogout }) => {
+  const navigate = useNavigate();
   return (
     <div className="navbar">
       <Link to="/">
@@ -27,9 +28,17 @@ const Navbar = ({ userID, onLogout }) => {
           </Link>
         </li>
       </ul>
-      {userID && (
+      {userID ? (
         <button className="sign-out-btn" type="button" onClick={onLogout}>
           Sign out
+        </button>
+      ) : (
+        <button
+          className="log-in-btn"
+          type="button"
+          onClick={() => navigate("/")}
+        >
+          Log in
         </button>
       )}
     </div>

@@ -18,7 +18,7 @@ const MyHashtagsCard = ({
   const [alert, setAlert] = useState(initalState.alert);
   return (
     <div className="save-hashtags-card-container">
-      <h2>{title}</h2>
+      <h2 className="hashtags-card__title">{title}</h2>
       <p>{hashtags}</p>
       <button
         type="button"
