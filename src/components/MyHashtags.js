@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
@@ -5,6 +6,7 @@ import getMyHashtags from "../requests/getMyHashtags";
 import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
 import Alert from "./Alert";
 import MyHashtagsCard from "./MyHashtagsCard";
+import "../styles/my-hashtags.scss";
 
 const MyHashtags = ({ userID }) => {
   const [myHashtags, setMyHashtags] = useState([]);
@@ -73,7 +75,6 @@ const MyHashtags = ({ userID }) => {
             />
           </div>
         ))}
-        + {userID}
       </div>
     </div>
   );

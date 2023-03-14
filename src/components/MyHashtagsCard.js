@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { FaRegCopy } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 import Alert from "./Alert";
 
 const MyHashtagsCard = ({
@@ -17,8 +19,9 @@ const MyHashtagsCard = ({
   };
   const [alert, setAlert] = useState(initalState.alert);
   return (
-    <div className="save-hashtags-card-container">
-      <h2>{title}</h2>
+    <>
+      <h2 className="hashtags-card__title">{title}</h2>
+
       <p>{hashtags}</p>
       <button
         type="button"
@@ -30,7 +33,7 @@ const MyHashtagsCard = ({
           });
         }}
       >
-        Copy
+        <FaRegCopy /> Copy
       </button>
       <button
         type="button"
@@ -38,15 +41,15 @@ const MyHashtagsCard = ({
           onRemoveHashtag(hashtagId);
         }}
       >
-        Remove
+        <MdDeleteForever /> Delete
       </button>
       <Alert message={alert.message} success={alert.isSuccess} />
-    </div>
+    </>
   );
 };
 
 MyHashtagsCard.propTypes = {
-  hashtagId: PropTypes.string.isRequired,
+  hashtagId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   hashtags: PropTypes.string.isRequired,
   onCopyHashtag: PropTypes.func.isRequired,

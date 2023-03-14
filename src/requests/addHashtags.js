@@ -15,6 +15,10 @@ const addHashtags = (fields, setAlert) => {
     });
   } catch (e) {
     console.log(e);
+    setAlert({
+      message: "Error, please try again.",
+      isSuccess: false,
+    });
   }
 };
 

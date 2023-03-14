@@ -2,64 +2,88 @@
 
 .search {
   @include v.center-items;
-  text-shadow: 1px 1px #f4eeee;
+  margin-top: 50px;
   .search-form > form {
     @include v.center-items;
     *{
-      margin-block: 5px;
+      margin-block: 10px;
     }
   }
 }
 
+.search-form__title {
+  font-size: 47px;
+  text-align: center;
+}
+
+.search-bar {
+  box-sizing: border-box;
+  width: 460px;
+}
+
 .search-bar > * {
   border: 0;
-  background-color: white;
-  box-shadow: rgba(43, 41, 36, 0.886) 1px 1px 2px 2px;
   height: 40px;
   font-size: 20px;
+  font-weight: 500;
+  box-sizing: border-box;
+  box-shadow: 5px 5px rgb(0, 0, 0);
 }
 
 .search-bar__input {
   border-top-left-radius: v.$border-radius;
   border-bottom-left-radius: v.$border-radius;
+  background-color: v.$text-color-1;
+  color: v.$content-background;
   padding-left: 10px;
+  width: 82%;
 }
 
 .search-bar__button {
   border-top-right-radius: v.$border-radius;
   border-bottom-right-radius: v.$border-radius;
+  background-color: v.$content-background;
+  color:v.$text-color-1;
   cursor: pointer;
-  box-sizing: content-box;
-  font-weight: 500;
-  color: rgb(248, 251, 251);
-  background-color: rgba(84, 78, 66, 0.961);
+  width: 18%;
 }
 
 .search-results-container {
-  padding: 20px 100px;
+  margin-block:20px;
 }
 
 .search-results {
-  color: rgb(6, 27, 27);
-  background-color: rgba(255, 255, 255, 0.942);
-  box-shadow: rgba(81, 79, 71, 0.886) 1px 1px 2px 2px;
-  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: v.$text-color-1;
+  color: v.$content-background;
+  border-radius: v.$border-radius;
   padding: 20px 20px;
-  height: 200px;
-  width: 400px;
+  max-width: 460px;
+  font-size: 18px;
+  box-shadow: 5px 5px black;
 }
 
-.search-button-container {
-padding-left: 350px;
+.search-results__title {
+  font-size: 30px;
+  background-color: inherit;
+  color: inherit;
+  margin-top: 5px;
+  margin-bottom: 15px;
 
 }
 
-.search__buttons {
+.copy-button {
   @include v.button;
+    .copy-icon {
+      vertical-align: -3px;
+    }
 }
 
-.save__buttons {
+.save-button {
   @include v.button;
+  .save-icon {
+    vertical-align: -3px;
+  }
 }
 
 .alert-message {

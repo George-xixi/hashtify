@@ -1,0 +1,57 @@
+@use "variables" as v;
+
+.add-hashtags {
+  @include v.center-items;
+  margin-top: 50px;
+  h1{
+    font-size: 47px;
+      text-align: center;
+    }
+    
+    .add-hashtags-form {
+      display: flex;
+      flex-direction: column;
+      font-size: 25px;
+    
+      * {
+        margin-bottom: 10px;
+      }
+      
+      input {
+        border-radius: v.$border-radius;
+        border: transparent;
+        background-color: v.$text-color-1;
+        color: v.$content-background;
+        padding-left: 10px;
+        height: 30px;
+        font-size: 25px;
+        box-shadow: 5px 5px black;
+      }
+
+      select {
+        border-radius: v.$border-radius;
+        border: transparent;
+        background-color: v.$text-color-1;
+        color: v.$content-background;
+        font-size: 25px;
+        padding-left: 10px;
+        box-shadow: 5px 5px black;
+      }
+
+      textarea {
+        border-radius: v.$border-radius;
+        border: transparent;
+        background-color: v.$text-color-1;
+        color: v.$content-background;
+        font-size: 25px;
+        box-shadow: 5px 5px black;
+      }
+
+      button {
+        @include v.button;
+        width: 100%;
+        margin: 0;
+        box-shadow: 5px 5px black;
+      }
+    }
+    }

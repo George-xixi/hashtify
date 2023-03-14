@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../styles/search.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy, faSave } from "@fortawesome/free-solid-svg-icons";
+import { FaRegCopy, FaRegSave } from "react-icons/fa";
 import SearchResults from "./SearchResults";
 import StatsResults from "./StatsResults";
 import searchHashtags from "../requests/searchHashtags";
@@ -52,7 +51,7 @@ const Search = ({
       <div className="search-form">
         <form onSubmit={handleSubmit}>
           <label htmlFor="search-input">
-            <h2>Search for hashtags{}</h2>
+            <h1 className="search-form__title">Search for hashtags{}</h1>
           </label>
           <div className="search-bar">
             <input
@@ -71,7 +70,10 @@ const Search = ({
       <div className="search-results-container">
         {ready && (
           <>
-            <SearchResults searchResults={searchResults} />
+            <SearchResults
+              searchResults={searchResults}
+              searchValue={searchValue}
+            />
             <StatsResults statsResults={statsResults} />
           </>
         )}
@@ -79,7 +81,7 @@ const Search = ({
       <div className="search-button-container">
         {ready && (
           <button
-            className="search__buttons"
+            className="copy-button"
             type="button"
             onClick={() => {
               copyToClipboard(searchResults);
@@ -89,16 +91,16 @@ const Search = ({
               });
             }}
           >
-            <FontAwesomeIcon className="copy-icon" icon={faCopy} />
+            <FaRegCopy className="copy-icon" /> Copy
           </button>
         )}
         {renderSave && (
           <button
-            className="save__buttons"
+            className="save-button"
             type="button"
             onClick={() => navigate("/add-hashtags")}
           >
-            <FontAwesomeIcon className="save-icon" icon={faSave} />
+            <FaRegSave className="save-icon" /> Save
           </button>
         )}
       </div>

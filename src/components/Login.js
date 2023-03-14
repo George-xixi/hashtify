@@ -1,20 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import FacebookLogin from "react-facebook-login";
 import "../styles/login.scss";
 import { FaFacebookF } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import header from "../styles/images/header.png";
+import logo from "../styles/images/hashtify-logo.png";
 
 const Login = ({ onLogin, userID }) => {
   return (
     <div className="login">
-      <img src={header} alt="header" />
+      <h1>#Hashtify </h1>
+      <div className="login-img-container">
+        <img src={logo} alt="hashtag on a stack of post-it notes" />
+      </div>
       <h2 className="login__header">
         Log in to search, create and manage your hashtags
       </h2>
       <FacebookLogin
-        appId="813549316783868"
+        appId="205009115458270"
         callback={onLogin}
         userID={userID}
         cssClass="my-facebook-button-class"
