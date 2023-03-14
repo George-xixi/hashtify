@@ -12,6 +12,7 @@ const App = () => {
   const [userID, setUserID] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState("");
+  const [statsResults, setStatsResults] = useState({});
   const onLogin = (response) => {
     setUserID(response.id);
     handleJwt(response.id);
@@ -44,6 +45,8 @@ const App = () => {
               setSearchValue={setSearchValue}
               searchResults={searchResults}
               setSearchResults={setSearchResults}
+              stateResults={statsResults}
+              setStateRsults={setStatsResults}
             />
           }
         />

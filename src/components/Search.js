@@ -5,7 +5,9 @@ import "../styles/search.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faSave } from "@fortawesome/free-solid-svg-icons";
 import SearchResults from "./SearchResults";
+import StatsResults from "./StatsResults";
 import searchHashtags from "../requests/searchHashtags";
+import getStatsResult from "../requests/getStatsResult";
 import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
 import Alert from "./Alert";
 
@@ -15,6 +17,8 @@ const Search = ({
   setSearchValue,
   searchResults,
   setSearchResults,
+  statsResults,
+  setStatsResults,
 }) => {
   const navigate = useNavigate();
   const [renderSave, setRenderSave] = useState(false);
@@ -39,6 +43,7 @@ const Search = ({
       setRenderSave,
       userID
     );
+    getStatsResult(searchValue, setStatsResults, setReady);
     setAlert(initalState.alert);
   };
 
@@ -64,7 +69,12 @@ const Search = ({
         </form>
       </div>
       <div className="search-results-container">
-        {ready && <SearchResults searchResults={searchResults} />}
+        {ready && (
+          <>
+            <SearchResults searchResults={searchResults} />
+            <StatsResults statsResults={statsResults} />
+          </>
+        )}
       </div>
       <div className="search-button-container">
         {ready && (
@@ -105,6 +115,8 @@ Search.propTypes = {
   setSearchValue: PropTypes.func.isRequired,
   searchResults: PropTypes.string.isRequired,
   setSearchResults: PropTypes.func.isRequired,
+  setStatsResults: PropTypes.func.isRequired,
+  statsResults: PropTypes.string.isRequired,
 };
 
 export default Search;
