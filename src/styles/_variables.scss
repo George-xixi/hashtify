@@ -1,5 +1,5 @@
 $font: "inter";
-$background-color: #563CF3;
+$background-color: #077f6b;
 $text-color-1: #ffffff;
 $content-background: #2f2e2e;
 $facebook-blue: #3975ea;
@@ -14,6 +14,7 @@ $border-radius: 10px;
 
 @mixin button {
   border: 3px solid $content-background;
+  box-shadow: 5px 5px rgb(0, 0, 0);
   font-size: 20px;
   font-weight: 600;
   background-color: $content-background;

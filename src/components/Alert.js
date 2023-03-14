@@ -23,10 +23,11 @@ const Alert = ({ message, success }) => {
 export default Alert;
 
 Alert.defaultProps = {
+  message: "",
   success: false,
 };
 
 Alert.propTypes = {
-  message: PropTypes.string.isRequired,
+  message: PropTypes.string,
   success: PropTypes.bool,
 };

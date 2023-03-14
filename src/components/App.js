@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import Cookie from "js-cookie";
+import jwtDecode from "jwt-decode";
 import handleJwt from "../requests/handleJwt";
 import Login from "./Login";
 import Search from "./Search";
@@ -12,6 +14,14 @@ const App = () => {
   const [userID, setUserID] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState("");
+  useEffect(() => {
+    const token = Cookie.get("userToken");
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      setUserID(decodedToken.userId);
+    }
+  }, []);
+
   const onLogin = (response) => {
     setUserID(response.id);
     handleJwt(response.id);
@@ -19,6 +29,7 @@ const App = () => {
   const onLogout = () => {
     window.FB.logout();
     setUserID("");
+    Cookie.remove("userToken");
   };
 
   return (

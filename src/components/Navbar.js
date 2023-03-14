@@ -10,23 +10,26 @@ const Navbar = ({ userID, onLogout }) => {
       <Link to="/" className="navbar__logo">
         <p>#Hashtify</p>
       </Link>
-      <ul className="navbar-links">
-        <li className="narbar-links__item">
-          <Link className="narbar-links__text" to="/search">
-            Search
-          </Link>
-        </li>
-        <li className="narbar-links__item">
-          <Link className="narbar-links__text" to="/my-hashtags">
-            My Hashtags
-          </Link>
-        </li>
-        <li className="narbar-links__item">
-          <Link className="narbar-links__text" to="/add-hashtags">
-            Add Hashtags
-          </Link>
-        </li>
-      </ul>
+      {userID && (
+        <ul className="navbar-links">
+          <li className="narbar-links__item">
+            <Link className="narbar-links__text" to="/search">
+              Search
+            </Link>
+          </li>
+          <li className="narbar-links__item">
+            <Link className="narbar-links__text" to="/my-hashtags">
+              My Hashtags
+            </Link>
+          </li>
+          <li className="narbar-links__item">
+            <Link className="narbar-links__text" to="/add-hashtags">
+              Add Hashtags
+            </Link>
+          </li>
+        </ul>
+      )}
+
       {userID ? (
         <button className="sign-out-btn" type="button" onClick={onLogout}>
           Sign out
