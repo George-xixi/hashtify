@@ -6,8 +6,9 @@ const getStatsResult = async (searchValue, setStatsResults, setReady) => {
     const response = await axios.get(
       `http://localhost:3000/stats/${searchValue}`
     );
-    console.log(response.data);
+
     setStatsResults(response.data);
+    console.log(response.data);
     await setReady(true);
   } catch (error) {
     console.error(error);

@@ -45,8 +45,8 @@ const App = () => {
               setSearchValue={setSearchValue}
               searchResults={searchResults}
               setSearchResults={setSearchResults}
-              stateResults={statsResults}
-              setStateRsults={setStatsResults}
+              statsResults={statsResults}
+              setStatsResults={setStatsResults}
             />
           }
         />
