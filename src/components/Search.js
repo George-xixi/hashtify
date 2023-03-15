@@ -69,13 +69,10 @@ const Search = ({
       </div>
       <div className="search-results-container">
         {ready && (
-          <>
-            <SearchResults
-              searchResults={searchResults}
-              searchValue={searchValue}
-            />
-            <StatsResults statsResults={statsResults} />
-          </>
+          <SearchResults
+            searchResults={searchResults}
+            searchValue={searchValue}
+          />
         )}
       </div>
       <div className="search-button-container">
@@ -104,6 +101,10 @@ const Search = ({
           </button>
         )}
       </div>
+      <div className="stats-results-container">
+        {ready && <StatsResults statsResults={statsResults} />}
+      </div>
+
       <div className="alert-message">
         <Alert message={alert.message} success={alert.isSuccess} />
       </div>

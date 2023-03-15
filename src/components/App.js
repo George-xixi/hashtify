@@ -22,7 +22,7 @@ const App = () => {
       setUserID(decodedToken.userId);
     }
   }, []);
-  
+
   const onLogin = (response) => {
     setUserID(response.id);
     handleJwt(response.id);

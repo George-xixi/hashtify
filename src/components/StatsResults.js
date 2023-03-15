@@ -9,15 +9,14 @@ const StatsResults = ({ statsResults }) => {
       </p>
     );
   }
+
   return (
-    <div className="search-results">
+    <div className="stats-search-results">
       Real-time stats for #{statsResults.tag}
       <ul>
-        <li>{statsResults.tweets} tweets per hour</li>
-        <li>
-          {Math.floor(statsResults.exposure / 1000000)}M exposure per hour
-        </li>
-        <li>{statsResults.retweets} retweets per hour</li>
+        <li>{statsResults.tweets.toLocaleString()} tweets per hour</li>
+        <li>{statsResults.exposure.toLocaleString()} exposure per hour</li>
+        <li>{statsResults.retweets.toLocaleString()} retweets per hour</li>
         <li>{Math.round(statsResults.images * 100)}% tweets contain links</li>
         <li>{Math.round(statsResults.links * 100)}% tweets contain links</li>
         <li>
