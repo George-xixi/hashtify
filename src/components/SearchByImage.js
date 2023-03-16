@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import SearchByImageResults from "./SearchByImageResult";
 import searchHashtagsByImage from "../requests/searchHashtagsByImage";
@@ -32,6 +32,12 @@ const SearchByImage = ({
           });
       });
   };
+
+  useEffect(() => {
+    setImage("");
+    setUrl("");
+    setImageResult("");
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -92,4 +98,6 @@ SearchByImage.propTypes = {
   setImage: PropTypes.func.isRequired,
   url: PropTypes.string.isRequired,
   setUrl: PropTypes.func.isRequired,
+  imageResult: PropTypes.arrayOf.isRequired,
+  setImageResult: PropTypes.func.isRequired,
 };
