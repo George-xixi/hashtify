@@ -9,12 +9,17 @@ import AddHashtags from "./AddHashtags";
 import "../styles/app.scss";
 import Navbar from "./Navbar";
 import MyHashtags from "./MyHashtags";
+import SearchByImage from "./SearchByImage";
 
 const App = () => {
   const [userID, setUserID] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState("");
   const [statsResults, setStatsResults] = useState({});
+  const [image, setImage] = useState("");
+  const [imageResult, setImageResult] = useState("");
+  const [url, setUrl] = useState("");
+
   useEffect(() => {
     const token = Cookie.get("userToken");
     if (token) {
@@ -57,6 +62,19 @@ const App = () => {
               setSearchResults={setSearchResults}
               statsResults={statsResults}
               setStatsResults={setStatsResults}
+            />
+          }
+        />
+        <Route
+          path="/search-by-image"
+          element={
+            <SearchByImage
+              image={image}
+              setImage={setImage}
+              imageResult={imageResult}
+              setImageResult={setImageResult}
+              url={url}
+              setUrl={setUrl}
             />
           }
         />
