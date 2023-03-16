@@ -4,14 +4,20 @@ import addHashtags from "../requests/addHashtags";
 import Alert from "./Alert";
 import "../styles/add-hashtags.scss";
 
-const AddHashtags = ({ userID }) => {
+const AddHashtagsAuto = ({
+  userID,
+  searchValue,
+  searchResults,
+  setSearchResults,
+  setSearchValue,
+}) => {
   // if no search is done, search value and search result will be an empty string.
   const initalState = {
     fields: {
       userId: userID,
-      title: "",
+      title: searchValue,
       category: "Music",
-      hashtags: "",
+      hashtags: searchResults,
     },
     alert: {
       message: "",
@@ -25,6 +31,8 @@ const AddHashtags = ({ userID }) => {
     e.preventDefault();
     addHashtags(fields, setAlert);
     setAlert(initalState.alert);
+    setSearchResults("");
+    setSearchValue("");
   };
   const handleFieldChange = (e) => {
     setFields({
@@ -74,8 +82,12 @@ const AddHashtags = ({ userID }) => {
   );
 };
 
-AddHashtags.propTypes = {
+AddHashtagsAuto.propTypes = {
   userID: PropTypes.string.isRequired,
+  searchValue: PropTypes.string.isRequired,
+  searchResults: PropTypes.string.isRequired,
+  setSearchResults: PropTypes.func.isRequired,
+  setSearchValue: PropTypes.func.isRequired,
 };
 
-export default AddHashtags;
+export default AddHashtagsAuto;

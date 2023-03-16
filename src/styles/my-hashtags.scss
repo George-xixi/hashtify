@@ -24,29 +24,37 @@
   display: flex;
   flex-wrap: wrap;
   margin-inline: auto;
-  .item {
-    width:250px;
-    background-color: v.$text-color-1;
-    border-radius: v.$border-radius;
-    padding: 15px;
-    margin: 10px;
-    box-shadow: 5px 5px black;
-    display: grid;
-    grid-template-rows: 30px 165px 50px;
-    
-    * {
+  
+    .item {
+      width: 250px;
       background-color: v.$text-color-1;
-      color: v.$content-background;
-    }
-    .hashtags-card__title {
-      margin: 0;
-    }
-    .button-div{
-      align-items: flex-end;
-        button {
-        @include v.button;
+      border-radius: v.$border-radius;
+      padding: 15px;
+      margin: 10px;
+      box-shadow: 5px 5px black;
+      display: grid;
+      grid-template-rows: 30px 165px 50px;
+
+      .category-icons  {
+        width: 20px;
       }
+  
+      category * {
+        background-color: v.$text-color-1;
+        color: v.$content-background;
+      }
+  
+      .hashtags-card__title {
+        margin: 0;
+      }
+  
+      .button-div {
+        align-items: flex-end;
+  
+        button {
+          @include v.button;
+        }
+      }
+  
     }
-    
   }
-}

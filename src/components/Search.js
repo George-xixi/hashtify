@@ -95,7 +95,7 @@ const Search = ({
           <button
             className="save-button"
             type="button"
-            onClick={() => navigate("/add-hashtags")}
+            onClick={() => navigate("/add-hashtags-auto")}
           >
             <FaRegSave className="save-icon" /> Save
           </button>
