@@ -20,5 +20,5 @@ const SearchByImageResults = ({ imageResult }) => {
 export default SearchByImageResults;
 
 SearchByImageResults.propTypes = {
-  imageResult: PropTypes.string.isRequired,
+  imageResult: PropTypes.arrayOf.isRequired,
 };
