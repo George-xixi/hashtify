@@ -12,7 +12,7 @@ const SearchByImageResults = ({ imageResult }) => {
 
   return (
     <div className="image-results">
-      <p>#{imageResult[0].hashtag}</p>
+      <p>{imageResult.map((hashtag) => `#${hashtag.hashtag} `)}</p>
     </div>
   );
 };
