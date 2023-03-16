@@ -54,14 +54,30 @@ const SearchByImage = ({
         <p>
           <a href={url}>{url}</a>
         </p>
-        <button
-          className="search-bar__button"
-          type="button"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
+        <p>
+          Please click submit button to get hashtag when the url is loaded
+          successfully.
+        </p>
       </div>{" "}
+      <button
+        className="search-bar__button"
+        type="button"
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
+      <br />
+      <div className="display-uploaded-image">
+        {imageResult && (
+          <img
+            src={url}
+            width="150px"
+            height="150px"
+            className="uploaded-image"
+            alt="userImage"
+          />
+        )}
+      </div>
       <div className="stats-results-container">
         {ready && <SearchByImageResults imageResult={imageResult} />}
       </div>
