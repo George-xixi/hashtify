@@ -1,0 +1,10 @@
+{
+  "Music" : "../styles/images/music-icon.png",
+  "Art" : "../styles/images/art-icon.png",
+  "Beauty" : "../styles/images/beauty-icon.png",
+  "Travel" : "../styles/images/travel-icon.png",
+  "Food" : "../styles/images/food-icon.png",
+  "Business" : "../styles/images/business-icon.png",
+  "Sport" : "../styles/images/sport-icon.png",
+  "Other" : "../styles/images/other-icon.png"
+}

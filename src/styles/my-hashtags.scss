@@ -23,6 +23,7 @@
 .my-hashtags__display {
   display: flex;
   flex-wrap: wrap;
+  margin-inline: auto;
   .item {
     width:250px;
     background-color: v.$text-color-1;
@@ -30,6 +31,8 @@
     padding: 15px;
     margin: 10px;
     box-shadow: 5px 5px black;
+    display: grid;
+    grid-template-rows: 30px 165px 50px;
     
     * {
       background-color: v.$text-color-1;
@@ -38,8 +41,12 @@
     .hashtags-card__title {
       margin: 0;
     }
-    button {
-      @include v.button;
+    .button-div{
+      align-items: flex-end;
+        button {
+        @include v.button;
+      }
     }
+    
   }
 }

@@ -17,8 +17,8 @@ const SearchByImageResults = ({ imageResult }) => {
   );
 };
 
-export default SearchByImageResults;
-
 SearchByImageResults.propTypes = {
   imageResult: PropTypes.arrayOf.isRequired,
 };
+
+export default SearchByImageResults;

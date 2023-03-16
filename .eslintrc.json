@@ -36,6 +36,7 @@
       {
         "namedComponents": "arrow-function"
       }
-    ]
+    ],
+    "react-hooks/exhaustive-deps": "off"
   }
 }

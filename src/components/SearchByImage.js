@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // eslint-disable-next-line no-use-before-define
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
@@ -91,13 +92,13 @@ const SearchByImage = ({
   );
 };
 
-export default SearchByImage;
-
 SearchByImage.propTypes = {
   image: PropTypes.string.isRequired,
   setImage: PropTypes.func.isRequired,
   url: PropTypes.string.isRequired,
   setUrl: PropTypes.func.isRequired,
-  imageResult: PropTypes.arrayOf.isRequired,
+  imageResult: PropTypes.string.isRequired,
   setImageResult: PropTypes.func.isRequired,
 };
+
+export default SearchByImage;

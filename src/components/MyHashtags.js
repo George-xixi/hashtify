@@ -69,6 +69,7 @@ const MyHashtags = ({ userID }) => {
               userID={userID}
               hashtagId={unit.id}
               title={unit.title}
+              category={unit.category}
               hashtags={unit.hashtags}
               onCopyHashtag={() => copyToClipboard(unit.hashtags)}
               onRemoveHashtag={handleRemovedHashtag}

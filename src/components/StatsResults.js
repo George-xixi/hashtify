@@ -30,5 +30,15 @@ const StatsResults = ({ statsResults }) => {
 export default StatsResults;
 
 StatsResults.propTypes = {
-  statsResults: PropTypes.shape.isRequired,
+  statsResults: PropTypes.shape({
+    tag: PropTypes.string,
+    tweets: PropTypes.number,
+    exposure: PropTypes.number,
+    retweets: PropTypes.number,
+    images: PropTypes.number,
+    links: PropTypes.number,
+    mentions: PropTypes.number,
+    color: PropTypes.number,
+    hashtag: PropTypes.string,
+  }).isRequired,
 };

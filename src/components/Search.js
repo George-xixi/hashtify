@@ -119,7 +119,13 @@ Search.propTypes = {
   searchResults: PropTypes.string.isRequired,
   setSearchResults: PropTypes.func.isRequired,
   setStatsResults: PropTypes.func.isRequired,
-  statsResults: PropTypes.string.isRequired,
+  statsResults: PropTypes.shape({
+    tweets: PropTypes.number,
+    retweets: PropTypes.number,
+    images: PropTypes.number,
+    links: PropTypes.number,
+    mentions: PropTypes.number,
+  }).isRequired,
 };
 
 export default Search;
