@@ -33,19 +33,28 @@
       margin: 10px;
       box-shadow: 5px 5px black;
       display: grid;
-      grid-template-rows: 30px 165px 50px;
+      grid-template-rows: 35px 165px 50px;
+
+      .hashtags-card__heading {
+        display: inline-flex;
+        width: 250px;
+        justify-content: space-between;
+      }
 
       .category-icons  {
-        width: 20px;
+        width: 35px;
+        margin-right: 5px;
+        justify-self: flex-end;
       }
   
-      category * {
+       * {
         background-color: v.$text-color-1;
         color: v.$content-background;
       }
   
       .hashtags-card__title {
         margin: 0;
+        width: fit-content;
       }
   
       .button-div {
@@ -53,6 +62,10 @@
   
         button {
           @include v.button;
+            *{
+              font-size: 22px;
+            }
+
         }
       }
   
