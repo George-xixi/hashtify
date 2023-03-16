@@ -2,6 +2,10 @@
 
 * {
   background: v.$background-color;
+
   color: v.$text-color-1;
+  * {
+    background: v.$background-color
+  }
 }
 

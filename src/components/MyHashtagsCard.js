@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { FaRegCopy } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
+import { RiDeleteBinLine } from "react-icons/ri";
 import Alert from "./Alert";
 import icon from "../data/hashtagCardIcon.json";
 
@@ -51,7 +51,7 @@ const MyHashtagsCard = ({
             onRemoveHashtag(hashtagId);
           }}
         >
-          <MdDeleteForever /> Delete
+          <RiDeleteBinLine /> Delete
         </button>
       </div>
       <Alert message={alert.message} success={alert.isSuccess} />

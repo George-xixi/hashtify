@@ -23,7 +23,7 @@
 .my-hashtags__display {
   display: flex;
   flex-wrap: wrap;
-  margin-inline: auto;
+  justify-content: center;
   
     .item {
       width: 250px;
@@ -62,9 +62,6 @@
   
         button {
           @include v.button;
-            *{
-              font-size: 22px;
-            }
 
         }
       }
