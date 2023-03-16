@@ -18,6 +18,11 @@ const Navbar = ({ userID, onLogout }) => {
             </Link>
           </li>
           <li className="narbar-links__item">
+            <Link className="narbar-links__text" to="/search-by-image">
+              Search By Image
+            </Link>
+          </li>
+          <li className="narbar-links__item">
             <Link className="narbar-links__text" to="/my-hashtags">
               My Hashtags
             </Link>
