@@ -37,7 +37,7 @@ const SearchByImage = ({
     setImage("");
     setUrl("");
     setImageResult("");
-  });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
