@@ -22,8 +22,15 @@ const MyHashtagsCard = ({
   const [alert, setAlert] = useState(initalState.alert);
   return (
     <>
-      <img src={icon[category]} alt={`${category} icon`} />
-      <h2 className="hashtags-card__title">{title}</h2>
+      <div className="hashtags-card__heading">
+        <h2 className="hashtags-card__title">{title}</h2>
+        <img
+          className="category-icons"
+          src={icon[category]}
+          alt={`${category} icon`}
+        />
+      </div>
+
       <p>{hashtags}</p>
       <div className="button-div">
         <button

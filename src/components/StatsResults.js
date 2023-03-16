@@ -19,10 +19,10 @@ const StatsResults = ({ statsResults }) => {
         <li>{statsResults.tweets.toLocaleString()} tweets per hour</li>
         <li>{statsResults.exposure.toLocaleString()} exposure per hour</li>
         <li>{statsResults.retweets.toLocaleString()} retweets per hour</li>
-        <li>{Math.round(statsResults.images * 100)}% tweets contain links</li>
+        <li>{Math.round(statsResults.images * 100)}% tweets contain images</li>
         <li>{Math.round(statsResults.links * 100)}% tweets contain links</li>
         <li>
-          {Math.round(statsResults.mentions * 100)}% tweets contain mentions
+          {Math.round(statsResults.mentions * 100)}% tweets contain mentio1ns
         </li>
       </ul>
     </div>

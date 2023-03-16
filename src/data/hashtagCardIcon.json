@@ -1,10 +1,10 @@
 {
-  "Music" : "../styles/images/music-icon.png",
-  "Art" : "../styles/images/art-icon.png",
-  "Beauty" : "../styles/images/beauty-icon.png",
-  "Travel" : "../styles/images/travel-icon.png",
-  "Food" : "../styles/images/food-icon.png",
-  "Business" : "../styles/images/business-icon.png",
-  "Sport" : "../styles/images/sport-icon.png",
-  "Other" : "../styles/images/other-icon.png"
+  "Music" : "/images/music-icon.png",
+  "Art" : "/images/art-icon.png",
+  "Beauty" : "/images/beauty-icon.png",
+  "Travel" : "/images/travel-icon.png",
+  "Food" : "/images/food-icon.png",
+  "Business" : "/images/business-icon.png",
+  "Sport" : "/images/sport-icon.png",
+  "Other" : "/images/other-icon.png"
 }

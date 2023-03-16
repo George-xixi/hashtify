@@ -6,6 +6,7 @@ import handleJwt from "../requests/handleJwt";
 import Login from "./Login";
 import Search from "./Search";
 import AddHashtags from "./AddHashtags";
+import AddHashtagsAuto from "./AddHashtagsAuto";
 import "../styles/app.scss";
 import Navbar from "./Navbar";
 import MyHashtags from "./MyHashtags";
@@ -81,8 +82,14 @@ const App = () => {
         <Route
           path="add-hashtags"
           element={
+            userID ? <AddHashtags userID={userID} /> : <Navigate to="/" />
+          }
+        />
+        <Route
+          path="add-hashtags-auto"
+          element={
             userID ? (
-              <AddHashtags
+              <AddHashtagsAuto
                 userID={userID}
                 searchValue={searchValue}
                 setSearchValue={setSearchValue}
