@@ -9,7 +9,9 @@ const StatsResults = ({ statsResults }) => {
       </p>
     );
   }
-
+  if (!statsResults.tweets) {
+    return <p className="no-stats-results-message">loading</p>;
+  }
   return (
     <div className="stats-search-results">
       Real-time stats for #{statsResults.tag}
