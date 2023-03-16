@@ -24,10 +24,12 @@ $border-radius: 10px;
   margin-inline: 10px;
   cursor: pointer;
   * {
-    background-color: $content-background;
-    color:$text-color-1;
+      background-color: $content-background;
+      color: $text-color-1;
+      font-size: 23px;
+      vertical-align: -3px;
+    }
   }
-}
 
 @mixin alert-message {
   padding-top: 20px;
