@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchByImageResults = ({ imageResult }) => {
-  console.log(imageResult, "IMAGE RESULT");
+const SearchByImageResults = ({ imageResult, imageHashtags }) => {
   if (!imageResult) {
     return (
       <p className="no-results-message">
@@ -13,13 +12,14 @@ const SearchByImageResults = ({ imageResult }) => {
 
   return (
     <div className="image-results">
-      <p>{imageResult.map((hashtag) => `#${hashtag.hashtag} `)}</p>
+      <p>{imageHashtags}</p>
     </div>
   );
 };
 
 SearchByImageResults.propTypes = {
   imageResult: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  imageHashtags: PropTypes.string.isRequired,
 };
 
 export default SearchByImageResults;

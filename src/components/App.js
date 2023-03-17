@@ -19,6 +19,7 @@ const App = () => {
   const [statsResults, setStatsResults] = useState({});
   const [image, setImage] = useState({});
   const [imageResult, setImageResult] = useState([]);
+  const [imageHashtags, setImageHashtags] = useState("");
   const [url, setUrl] = useState("");
 
   useEffect(() => {
@@ -77,6 +78,8 @@ const App = () => {
               setImageResult={setImageResult}
               url={url}
               setUrl={setUrl}
+              imageHashtags={imageHashtags}
+              setImageHashtags={setImageHashtags}
             />
           }
         />
