@@ -6,14 +6,18 @@ const searchHashtagsByImage = async (
   setImageResult,
   setReady,
   setRenderSave,
-  userID
+  userID,
+  setImageHashtags
 ) => {
   try {
     const url2 = encodeURIComponent(`${url}`);
     const response = await axios.get(
       `http://localhost:3000/search-by-image/${url2}`
     );
-    setImageResult(response.data);
+    const images = response.data.map((obj) => obj.hashtag);
+    setImageResult(images);
+    setImageHashtags(images.join("  #"));
+    console.log(images, "DATA HERE!");
     await setReady(true);
     if (userID) {
       setRenderSave(true);

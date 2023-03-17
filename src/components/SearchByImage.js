@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react-hooks/exhaustive-deps */
 // eslint-disable-next-line no-use-before-define
 import React, { useState, useEffect } from "react";
@@ -18,12 +19,13 @@ const SearchByImage = ({
   setUrl,
   imageResult,
   setImageResult,
+  imageHashtags,
+  setImageHashtags,
 }) => {
   const navigate = useNavigate();
   const [renderSave, setRenderSave] = useState(false);
   const [ready, setReady] = useState(false);
   const [copyToClipboard] = useCopyToClipboard();
-  console.log(image, "IMAGE");
   const initalState = {
     alert: {
       message: "",
@@ -58,7 +60,14 @@ const SearchByImage = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    searchHashtagsByImage(url, setImageResult, setReady, setRenderSave, userID);
+    searchHashtagsByImage(
+      url,
+      setImageResult,
+      setReady,
+      setRenderSave,
+      userID,
+      setImageHashtags
+    );
     setAlertMsg(initalState.alert);
   };
 
@@ -105,7 +114,13 @@ const SearchByImage = ({
         )}
       </div>
       <div className="image-results-container">
-        {ready && <SearchByImageResults imageResult={imageResult} />}
+        {ready && (
+          <SearchByImageResults
+            imageResult={imageResult}
+            imageHashtags={imageHashtags}
+            setImageHashtags={setImageHashtags}
+          />
+        )}
       </div>
       <div className="search-button-container">
         {ready && (
@@ -113,7 +128,7 @@ const SearchByImage = ({
             className="copy-button"
             type="button"
             onClick={() => {
-              copyToClipboard(imageResult);
+              copyToClipboard(imageHashtags);
               setAlertMsg({
                 message: "Successfully copied",
                 isSuccess: true,
@@ -165,6 +180,8 @@ SearchByImage.propTypes = {
     })
   ),
   setImageResult: PropTypes.func.isRequired,
+  imageHashtags: PropTypes.string.isRequired,
+  setImageHashtags: PropTypes.func.isRequired,
 };
 
 export default SearchByImage;
