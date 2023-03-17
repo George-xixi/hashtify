@@ -17,8 +17,8 @@ const App = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState("");
   const [statsResults, setStatsResults] = useState({});
-  const [image, setImage] = useState("");
-  const [imageResult, setImageResult] = useState("");
+  const [image, setImage] = useState({});
+  const [imageResult, setImageResult] = useState([]);
   const [url, setUrl] = useState("");
 
   useEffect(() => {

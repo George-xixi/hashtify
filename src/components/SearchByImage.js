@@ -23,6 +23,7 @@ const SearchByImage = ({
   const [renderSave, setRenderSave] = useState(false);
   const [ready, setReady] = useState(false);
   const [copyToClipboard] = useCopyToClipboard();
+  console.log(image, "IMAGE");
   const initalState = {
     alert: {
       message: "",
@@ -50,9 +51,9 @@ const SearchByImage = ({
   };
 
   useEffect(() => {
-    setImage("");
+    setImage({});
     setUrl("");
-    setImageResult("");
+    setImageResult([]);
   }, []);
 
   const handleSubmit = (e) => {
@@ -139,20 +140,30 @@ const SearchByImage = ({
   );
 };
 
+SearchByImage.defaultProps = {
+  image: {
+    name: "",
+  },
+  imageResult: [{}],
+};
 SearchByImage.propTypes = {
   userID: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    name: PropTypes.string,
+  }),
   setImage: PropTypes.func.isRequired,
   url: PropTypes.string.isRequired,
   setUrl: PropTypes.func.isRequired,
-  imageResult: PropTypes.shape({
-    hashtag: PropTypes.string,
-    tweets: PropTypes.number,
-    retweets: PropTypes.number,
-    images: PropTypes.number,
-    links: PropTypes.number,
-    mentions: PropTypes.number,
-  }).isRequired,
+  imageResult: PropTypes.arrayOf(
+    PropTypes.shape({
+      hashtag: PropTypes.string,
+      tweets: PropTypes.number,
+      retweets: PropTypes.number,
+      images: PropTypes.number,
+      links: PropTypes.number,
+      mentions: PropTypes.number,
+    })
+  ),
   setImageResult: PropTypes.func.isRequired,
 };
 
