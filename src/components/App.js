@@ -70,6 +70,7 @@ const App = () => {
           path="/search-by-image"
           element={
             <SearchByImage
+              userID={userID}
               image={image}
               setImage={setImage}
               imageResult={imageResult}

@@ -36,12 +36,12 @@ const Navbar = ({ userID, onLogout }) => {
       <ul className="navbar-links">
         <li className="narbar-links__item">
           <Link className="narbar-links__text" to="/search">
-            Search
+            Search by Keyword
           </Link>
         </li>
         <li className="narbar-links__item">
           <Link className="narbar-links__text" to="/search-by-image">
-            Search By Image
+            Search by Image
           </Link>
         </li>
         {userID && (

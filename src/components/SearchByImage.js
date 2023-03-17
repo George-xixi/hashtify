@@ -1,12 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // eslint-disable-next-line no-use-before-define
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { FaRegCopy, FaRegSave } from "react-icons/fa";
 import SearchByImageResults from "./SearchByImageResult";
 import searchHashtagsByImage from "../requests/searchHashtagsByImage";
+import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
+import Alert from "./Alert";
 import { storage } from "./firebase";
 
 const SearchByImage = ({
+  userID,
   image,
   setImage,
   url,
@@ -14,7 +19,17 @@ const SearchByImage = ({
   imageResult,
   setImageResult,
 }) => {
+  const navigate = useNavigate();
+  const [renderSave, setRenderSave] = useState(false);
   const [ready, setReady] = useState(false);
+  const [copyToClipboard] = useCopyToClipboard();
+  const initalState = {
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
+  };
+  const [alertMsg, setAlertMsg] = useState(initalState.alert);
   const upload = () => {
     if (image == null) return;
     setUrl("Getting url link..");
@@ -42,7 +57,8 @@ const SearchByImage = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    searchHashtagsByImage(url, setImageResult, setReady);
+    searchHashtagsByImage(url, setImageResult, setReady, setRenderSave, userID);
+    setAlertMsg(initalState.alert);
   };
 
   return (
@@ -58,21 +74,23 @@ const SearchByImage = ({
           upload
         </button>
         <br />
-        <p>
+        {/* <p>
           <a href={url}>{url}</a>
-        </p>
+        </p> */}
         <p>
           Please click submit button to get hashtag when the url is loaded
           successfully.
         </p>
       </div>{" "}
-      <button
-        className="search-bar__button"
-        type="button"
-        onClick={handleSubmit}
-      >
-        Submit
-      </button>
+      {url && (
+        <button
+          className="search-bar__button"
+          type="button"
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
+      )}
       <br />
       <div className="display-uploaded-image">
         {imageResult && (
@@ -85,19 +103,56 @@ const SearchByImage = ({
           />
         )}
       </div>
-      <div className="stats-results-container">
+      <div className="image-results-container">
         {ready && <SearchByImageResults imageResult={imageResult} />}
+      </div>
+      <div className="search-button-container">
+        {ready && (
+          <button
+            className="copy-button"
+            type="button"
+            onClick={() => {
+              copyToClipboard(imageResult);
+              setAlertMsg({
+                message: "Successfully copied",
+                isSuccess: true,
+              });
+            }}
+          >
+            <FaRegCopy className="copy-icon" /> Copy
+          </button>
+        )}
+        {renderSave && (
+          <button
+            className="save-button"
+            type="button"
+            onClick={() => navigate("/add-hashtags-auto")}
+          >
+            <FaRegSave className="save-icon" /> Save
+          </button>
+        )}
+      </div>
+      <div className="alert-message">
+        <Alert message={alertMsg.message} success={alertMsg.isSuccess} />
       </div>
     </>
   );
 };
 
 SearchByImage.propTypes = {
+  userID: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   setImage: PropTypes.func.isRequired,
   url: PropTypes.string.isRequired,
   setUrl: PropTypes.func.isRequired,
-  imageResult: PropTypes.string.isRequired,
+  imageResult: PropTypes.shape({
+    hashtag: PropTypes.string,
+    tweets: PropTypes.number,
+    retweets: PropTypes.number,
+    images: PropTypes.number,
+    links: PropTypes.number,
+    mentions: PropTypes.number,
+  }).isRequired,
   setImageResult: PropTypes.func.isRequired,
 };
 
