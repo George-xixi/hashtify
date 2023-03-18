@@ -90,29 +90,27 @@
 }
 
 .stats-results-container {
-  padding: 3px 3px;
-  margin-top: 10px;
-  background-color: rgb(248, 248, 248);
-  border-radius: 8px;
-  font-size: 18px;
-  width: 450px;
-  height: 100px;
-  box-shadow: black 4px 4px 1px 1px;
+  margin-block: 10px;
+
 }
+
 .stats-search-results {  
   display: grid;
-  border: 2px solid;
-  padding: 5px 5px;
-  justify-items: center;
-  border-radius: 8px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 10px 15px;
+  gap: 10px 20px;
   grid-auto-flow: row;
   grid-template-areas:
     "Real-time-stats Real-time-stats Real-time-stats Real-time-stats"
     "tweets exposure reteets mentions"
     "number number2 number3 number4";
+  font-size: 18px;
+  padding: 8px 8px;
+  width: 440px;
+  justify-items: center;
+  border-radius: 8px;
+  box-shadow: 5px 5px black;
+  border: white solid;
 }
 
 .Real-time-stats {grid-area: Real-time-stats;}
