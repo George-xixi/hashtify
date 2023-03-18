@@ -14,7 +14,7 @@ const StatsResults = ({ statsResults }) => {
   }
   return (
     <div className="stats-search-results">
-      Real-time stats for #{statsResults.tag}
+      {/* Real-time stats for #{statsResults.tag}
       <ul>
         <li>{statsResults.tweets.toLocaleString()} tweets per hour</li>
         <li>{statsResults.exposure.toLocaleString()} exposure per hour</li>
@@ -22,10 +22,23 @@ const StatsResults = ({ statsResults }) => {
         <li>{Math.round(statsResults.images * 100)}% tweets contain images</li>
         <li>{Math.round(statsResults.links * 100)}% tweets contain links</li>
         <li>
-          {Math.round(statsResults.mentions * 100)}% tweets contain mentio1ns
+          {Math.round(statsResults.mentions * 100)}% tweets contain mentions
         </li>
-      </ul>
+      </ul> */}
+      {/* <div className="container"> */}
+      <div className="Real-time-stats">
+        Real-time stats for #{statsResults.tag} per hour
+      </div>
+      <div className="tweets">Tweets</div>
+      <div className="exposure">Exposure</div>
+      <div className="reteets">Reteets</div>
+      <div className="mentions">Mentions</div>
+      <div className="number">{statsResults.tweets.toLocaleString()}</div>
+      <div className="number2">{statsResults.exposure.toLocaleString()}</div>
+      <div className="number3">{statsResults.retweets.toLocaleString()}</div>
+      <div className="number4">{Math.round(statsResults.mentions * 100)}%</div>
     </div>
+    // </div>
   );
 };
 

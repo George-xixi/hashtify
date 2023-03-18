@@ -67,6 +67,9 @@ const Search = ({
           </div>
         </form>
       </div>
+      <div className="stats-results-container">
+        {ready && <StatsResults statsResults={statsResults} />}
+      </div>
       <div className="search-results-container">
         {ready && (
           <SearchResults
@@ -101,10 +104,6 @@ const Search = ({
           </button>
         )}
       </div>
-      <div className="stats-results-container">
-        {ready && <StatsResults statsResults={statsResults} />}
-      </div>
-
       <div className="alert-message">
         <Alert message={alert.message} success={alert.isSuccess} />
       </div>
