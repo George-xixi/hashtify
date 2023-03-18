@@ -29,8 +29,6 @@ const StatsResults = ({ statsResults }) => {
   );
 };
 
-export default StatsResults;
-
 StatsResults.propTypes = {
   statsResults: PropTypes.shape({
     tag: PropTypes.string,
@@ -44,3 +42,5 @@ StatsResults.propTypes = {
     hashtag: PropTypes.string,
   }).isRequired,
 };
+
+export default StatsResults;
