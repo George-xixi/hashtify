@@ -64,9 +64,9 @@ const Navbar = ({ userID, onLogout }) => {
   );
 };
 
-export default Navbar;
-
 Navbar.propTypes = {
   onLogout: PropTypes.func.isRequired,
   userID: PropTypes.string.isRequired,
 };
+
+export default Navbar;
