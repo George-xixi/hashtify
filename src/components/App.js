@@ -99,6 +99,8 @@ const App = () => {
                 setSearchValue={setSearchValue}
                 searchResults={searchResults}
                 setSearchResults={setSearchResults}
+                imageResult={imageResult}
+                setImageResult={setImageResult}
               />
             ) : (
               <Navigate to="/" />

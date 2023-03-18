@@ -8,8 +8,10 @@ const AddHashtagsAuto = ({
   userID,
   searchValue,
   searchResults,
+  imageResult,
   setSearchResults,
   setSearchValue,
+  setImageResult,
 }) => {
   // if no search is done, search value and search result will be an empty string.
   const initalState = {
@@ -17,7 +19,7 @@ const AddHashtagsAuto = ({
       userId: userID,
       title: searchValue,
       category: "Music",
-      hashtags: searchResults,
+      hashtags: searchResults || imageResult,
     },
     alert: {
       message: "",
@@ -33,6 +35,7 @@ const AddHashtagsAuto = ({
     setAlert(initalState.alert);
     setSearchResults("");
     setSearchValue("");
+    setImageResult("");
   };
   const handleFieldChange = (e) => {
     setFields({
@@ -86,8 +89,10 @@ AddHashtagsAuto.propTypes = {
   userID: PropTypes.string.isRequired,
   searchValue: PropTypes.string.isRequired,
   searchResults: PropTypes.string.isRequired,
+  imageResult: PropTypes.string.isRequired,
   setSearchResults: PropTypes.func.isRequired,
   setSearchValue: PropTypes.func.isRequired,
+  setImageResult: PropTypes.func.isRequired,
 };
 
 export default AddHashtagsAuto;
