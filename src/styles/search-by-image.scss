@@ -1,0 +1,51 @@
+@use "variables" as v;
+
+.search-by-image{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 20px;
+  .choose-file-button {
+    background-color: transparent;
+  }
+  input::file-selector-button {
+    @include v.button;
+  }
+  .upload-button {
+    @include v.button;
+  }
+}
+
+.submit-msg > p {
+  @include v.center-items;
+  font-family: inherit;
+  font-size: 20px;
+}
+
+.display-result-container {
+  @include v.center-items;
+  .search-bar__button {
+    @include v.button;
+    width: 100px;
+  }
+  border-radius: v.$border-radius;
+  img {
+    padding-top: 20px;
+    border-radius: v.$border-radius;
+    padding: 5px 5px;
+    margin-top: 10px;
+  }
+  .image-results-container{
+    margin-block:20px;
+  }
+  .search-results > * {
+    background-color: white;
+    color: black;
+  }
+}
+
+
+
+
+
+

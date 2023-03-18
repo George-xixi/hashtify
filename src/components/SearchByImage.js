@@ -10,6 +10,7 @@ import searchHashtagsByImage from "../requests/searchHashtagsByImage";
 import useCopyToClipboard from "../copyToClipboard/useCopyToClipboard";
 import Alert from "./Alert";
 import { storage } from "./firebase";
+import "../styles/search-by-image.scss";
 
 const SearchByImage = ({
   userID,
@@ -75,81 +76,85 @@ const SearchByImage = ({
     <>
       <div className="search-by-image">
         <input
+          className="choose-file-button"
           type="file"
           onChange={(e) => {
             setImage(e.target.files[0]);
           }}
         />
-        <button type="button" onClick={upload}>
+        <button type="button" className="upload-button" onClick={upload}>
           upload
         </button>
         <br />
         {/* <p>
           <a href={url}>{url}</a>
         </p> */}
+      </div>{" "}
+      <div className="submit-msg">
         <p>
           Please click submit button to get hashtag when the url is loaded
           successfully.
         </p>
-      </div>{" "}
-      {url && (
-        <button
-          className="search-bar__button"
-          type="button"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      )}
-      <br />
-      <div className="display-uploaded-image">
-        {imageResult && (
-          <img
-            src={url}
-            width="150px"
-            height="150px"
-            className="uploaded-image"
-            alt="userImage"
-          />
-        )}
       </div>
-      <div className="image-results-container">
-        {ready && (
-          <SearchByImageResults
-            imageResult={imageResult}
-            imageHashtags={imageHashtags}
-            setImageHashtags={setImageHashtags}
-          />
-        )}
-      </div>
-      <div className="search-button-container">
-        {ready && (
+      <div className="display-result-container">
+        {url && (
           <button
-            className="copy-button"
+            className="search-bar__button"
             type="button"
-            onClick={() => {
-              copyToClipboard(imageHashtags);
-              setAlertMsg({
-                message: "Successfully copied",
-                isSuccess: true,
-              });
-            }}
+            onClick={handleSubmit}
           >
-            <FaRegCopy className="copy-icon" /> Copy
+            Submit
           </button>
         )}
-        {renderSave && (
-          <button
-            className="save-button"
-            type="button"
-            onClick={() => navigate("/add-hashtags-auto")}
-          >
-            <FaRegSave className="save-icon" /> Save
-          </button>
-        )}
-      </div>
-      <div className="alert-message">
-        <Alert message={alertMsg.message} success={alertMsg.isSuccess} />
+        <div className="display-uploaded-image">
+          {url && (
+            <img
+              src={url}
+              width="250px"
+              height="250px"
+              className="uploaded-image"
+              alt="userImage"
+            />
+          )}
+        </div>
+        <div className="image-results-container">
+          {ready && (
+            <SearchByImageResults
+              imageResult={imageResult}
+              imageHashtags={imageHashtags}
+              setImageHashtags={setImageHashtags}
+            />
+          )}
+        </div>
+        <div className="search-button-container">
+          {ready && (
+            <button
+              className="copy-button"
+              type="button"
+              onClick={() => {
+                copyToClipboard(imageHashtags);
+                setAlertMsg({
+                  message: "Successfully copied",
+                  isSuccess: true,
+                });
+              }}
+            >
+              <FaRegCopy className="copy-icon" /> Copy
+            </button>
+          )}
+          {renderSave && (
+            <button
+              className="save-button"
+              type="button"
+              onClick={() => navigate("/add-hashtags-auto")}
+            >
+              <FaRegSave className="save-icon" /> Save
+            </button>
+          )}
+        </div>
+        <div className="alert-message">
+          <Alert message={alertMsg.message} success={alertMsg.isSuccess} />
+        </div>
       </div>
     </>
   );
