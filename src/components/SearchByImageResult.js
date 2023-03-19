@@ -11,7 +11,7 @@ const SearchByImageResults = ({ imageResult, imageHashtags }) => {
   }
 
   return (
-    <div className="image-results">
+    <div className="search-results">
       <p>{imageHashtags}</p>
     </div>
   );
