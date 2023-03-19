@@ -69,7 +69,6 @@
   color: inherit;
   margin-top: 5px;
   margin-bottom: 15px;
-
 }
 
 .copy-button {
@@ -89,3 +88,45 @@
 .alert-message {
   @include v.alert-message;
 }
+
+.stats-results-container {
+  margin-block: 10px;
+
+}
+
+.stats-search-results {  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px 20px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Real-time-stats Real-time-stats Real-time-stats Real-time-stats"
+    "tweets exposure reteets mentions"
+    "number number2 number3 number4";
+  font-size: 18px;
+  padding: 8px 8px;
+  width: 440px;
+  justify-items: center;
+  border-radius: 8px;
+  box-shadow: 5px 5px black;
+  border: white solid;
+}
+
+.Real-time-stats {grid-area: Real-time-stats;}
+
+.tweets { grid-area: tweets; }
+
+.exposure { grid-area: exposure; }
+
+.reteets { grid-area: reteets; }
+
+.mentions { grid-area: mentions; }
+
+.number { grid-area: number; }
+
+.number2 { grid-area: number2; }
+
+.number3 { grid-area: number3; }
+
+.number4 { grid-area: number4; }
