@@ -1,11 +1,19 @@
 @use "variables" as v;
 
 * {
-  background: v.$background-color;
-
-  color: v.$text-color-1;
+  fullScreen: { enable: false }
+  color:rgb(52, 41, 41);
   * {
-    background: v.$background-color
+    background: transparent
   }
 }
 
+.app {
+  z-index: 1;
+  position: absolute;
+}
+
+.particles{
+  z-index: -1;
+  position: relative;
+}

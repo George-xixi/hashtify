@@ -5,7 +5,7 @@
   padding: 5px 10px;
   border-bottom: 3px solid v.$content-background;
   border-radius: v.$border-radius;
-  background-color: #2f2e2e9e;
+  background-color: hsla(288, 51%, 90%, 0.757);
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 3fr 0.5fr;
@@ -19,6 +19,8 @@
   text-decoration: none;
   p {
     margin: 0;
+    color: rgb(61, 46, 46);
+    padding: 0 10px;
   }
 }
 
@@ -39,7 +41,7 @@
 
 .narbar-links__text {
   text-decoration: none;
-  color: v.$text-color-1;
+  color:rgb(61, 46, 46);;
   font-size: 17px;
 }
 
