@@ -11,7 +11,7 @@ const Login = ({ onLogin, userID }) => {
       <h1>#Hashtify </h1>
       <div className="login-img-container">
         <img
-          src="/images/hashtify-logo.png"
+          src="/images/new-hash-logo.png"
           alt="hashtag on a stack of post-it notes"
         />
       </div>
