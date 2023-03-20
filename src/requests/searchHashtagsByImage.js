@@ -15,7 +15,7 @@ const searchHashtagsByImage = async (
       `http://localhost:3000/search-by-image/${url2}`
     );
     const images = response.data.map((obj) => obj.hashtag);
-    setImageResult(images);
+    setImageResult(images.join("  #"));
     setImageHashtags(images.join("  #"));
     console.log(images, "DATA HERE!");
     await setReady(true);
