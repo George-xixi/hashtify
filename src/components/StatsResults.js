@@ -17,10 +17,35 @@ const StatsResults = ({ statsResults }) => {
       <div className="Real-time-stats">
         Real-time stats for #{statsResults.tag} per hour
       </div>
-      <div className="tweets">Tweets</div>
-      <div className="exposure">Exposure</div>
-      <div className="reteets">Retweets</div>
-      <div className="mentions">Mentions</div>
+      <div className="tweets">
+        Tweets
+        <img
+          src="/images/tweet-icon.png"
+          alt="twitter logo"
+          className="stats-logo"
+        />
+      </div>
+      <div className="exposure">
+        Views
+        <img src="/images/views-icon.png" alt="eye" className="stats-logo" />
+      </div>
+      <div className="reteets">
+        Retweets
+        <img
+          src="/images/retweet-icon.png"
+          alt="retweet logo"
+          className="stats-logo"
+        />
+      </div>
+      <div className="mentions">
+        {" "}
+        Mentions
+        <img
+          src="/images/mention-icon.png"
+          alt="twitter logo"
+          className="stats-logo"
+        />
+      </div>
       <div className="number">{statsResults.tweets.toLocaleString()}</div>
       <div className="number2">{statsResults.exposure.toLocaleString()}</div>
       <div className="number3">{statsResults.retweets.toLocaleString()}</div>
