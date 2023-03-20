@@ -75,39 +75,27 @@ const SearchByImage = ({
   return (
     <>
       <div className="search-by-image">
-        <input
-          className="choose-file-button"
-          type="file"
-          onChange={(e) => {
-            setImage(e.target.files[0]);
-          }}
-        />
-        <button type="button" className="upload-button" onClick={upload}>
-          upload
-        </button>
+        <h1 className="search-form__title">Search by image</h1>
+        <div className="image-submit">
+          <input
+            className="choose-file-button"
+            type="file"
+            onChange={(e) => {
+              setImage(e.target.files[0]);
+            }}
+          />
+          <button type="button" className="upload-button" onClick={upload}>
+            upload
+          </button>
+        </div>
         <br />
         {/* <p>
           <a href={url}>{url}</a>
         </p> */}
       </div>{" "}
-      <div className="submit-msg">
-        <p>
-          Please click submit button to get hashtag when the url is loaded
-          successfully.
-        </p>
-      </div>
       <div className="display-result-container">
         {url && (
-          <button
-            className="search-bar__button"
-            type="button"
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
-        )}
-        <div className="display-uploaded-image">
-          {url && (
+          <div className="display-uploaded-image">
             <img
               src={url}
               width="250px"
@@ -115,45 +103,54 @@ const SearchByImage = ({
               className="uploaded-image"
               alt="userImage"
             />
-          )}
-        </div>
-        <div className="image-results-container">
-          {ready && (
-            <SearchByImageResults
-              imageResult={imageResult}
-              imageHashtags={imageHashtags}
-              setImageHashtags={setImageHashtags}
-            />
-          )}
-        </div>
-        <div className="search-button-container">
-          {ready && (
             <button
-              className="copy-button"
+              className="image-submit__button"
               type="button"
-              onClick={() => {
-                copyToClipboard(imageHashtags);
-                setAlertMsg({
-                  message: "Successfully copied",
-                  isSuccess: true,
-                });
-              }}
+              onClick={handleSubmit}
             >
-              <FaRegCopy className="copy-icon" /> Copy
+              Submit
             </button>
-          )}
-          {renderSave && (
-            <button
-              className="save-button"
-              type="button"
-              onClick={() => navigate("/add-hashtags-auto")}
-            >
-              <FaRegSave className="save-icon" /> Save
-            </button>
-          )}
-        </div>
-        <div className="alert-message">
-          <Alert message={alertMsg.message} success={alertMsg.isSuccess} />
+          </div>
+        )}
+        <div className="image-results-all">
+          <div className="image-results-container">
+            {ready && (
+              <SearchByImageResults
+                imageResult={imageResult}
+                imageHashtags={imageHashtags}
+                setImageHashtags={setImageHashtags}
+              />
+            )}
+          </div>
+          <div className="search-button-container">
+            {ready && (
+              <button
+                className="copy-button"
+                type="button"
+                onClick={() => {
+                  copyToClipboard(imageHashtags);
+                  setAlertMsg({
+                    message: "Successfully copied",
+                    isSuccess: true,
+                  });
+                }}
+              >
+                <FaRegCopy className="copy-icon" /> Copy
+              </button>
+            )}
+            {renderSave && (
+              <button
+                className="save-button"
+                type="button"
+                onClick={() => navigate("/add-hashtags-auto")}
+              >
+                <FaRegSave className="save-icon" /> Save
+              </button>
+            )}
+          </div>
+          <div className="alert-message">
+            <Alert message={alertMsg.message} success={alertMsg.isSuccess} />
+          </div>
         </div>
       </div>
     </>

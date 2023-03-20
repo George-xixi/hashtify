@@ -2,7 +2,7 @@
 
 .search {
   @include v.center-items;
-  margin-top: 50px;
+  margin-top: 10px;
   .search-form > form {
     @include v.center-items;
     *{
@@ -40,7 +40,7 @@
 }
 
 .search-bar__button {
-  border-top-right-radius: v.$border-radius;
+  border-top-right-radius: v.$border-radius !important;
   border-bottom-right-radius: v.$border-radius;
   background-color: v.$content-background;
   color:v.$text-color-1;
@@ -112,7 +112,9 @@
   border: white solid;
 }
 
-.Real-time-stats {grid-area: Real-time-stats;}
+.Real-time-stats {grid-area: Real-time-stats;
+  font-weight: 600;
+}
 
 .tweets { grid-area: tweets; }
 
