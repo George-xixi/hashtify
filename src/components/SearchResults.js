@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchResults = ({ searchResults, searchValue }) => {
+const SearchResults = ({ searchResults }) => {
   if (!searchResults) {
     return (
       <p className="no-results-message">
@@ -9,9 +9,10 @@ const SearchResults = ({ searchResults, searchValue }) => {
       </p>
     );
   }
+  const resultsArray = searchResults.split(" ");
   return (
     <div className="search-results">
-      <h2 className="search-results__title">{searchValue}</h2>
+      <h2 className="search-results__title">{resultsArray[0]}</h2>
       {searchResults}
     </div>
   );
@@ -19,7 +20,6 @@ const SearchResults = ({ searchResults, searchValue }) => {
 
 SearchResults.propTypes = {
   searchResults: PropTypes.string.isRequired,
-  searchValue: PropTypes.string.isRequired,
 };
 
 export default SearchResults;

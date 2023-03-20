@@ -71,12 +71,7 @@ const Search = ({
         {ready && <StatsResults statsResults={statsResults} />}
       </div>
       <div className="search-results-container">
-        {ready && (
-          <SearchResults
-            searchResults={searchResults}
-            searchValue={searchValue}
-          />
-        )}
+        {ready && <SearchResults searchResults={searchResults} />}
       </div>
       <div className="search-button-container">
         {ready && (
