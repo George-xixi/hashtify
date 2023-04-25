@@ -143,3 +143,16 @@
 .number3 { grid-area: number3; }
 
 .number4 { grid-area: number4; }
+
+@media screen and (max-width: 840px) {
+  .search-bar {
+    width: 95%;
+    button{ 
+    width:25%;
+  }
+  input {
+    width:70%;
+  }
+  }
+  
+}
