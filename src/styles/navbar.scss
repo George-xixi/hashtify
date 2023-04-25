@@ -19,11 +19,14 @@
   text-decoration: none;
   p {
     margin: 0;
-    color: rgb(61, 46, 46);
+    color: v.$content-background;
     padding: 0 10px;
   }
 }
 
+.hamburger-menu {
+  display: none;
+}
 .navbar-links {
   display: flex;
   gap: 50px;
@@ -41,7 +44,7 @@
 
 .narbar-links__text {
   text-decoration: none;
-  color:rgb(61, 46, 46);;
+  color: v.$content-background;
   font-size: 17px;
 }
 
@@ -64,4 +67,91 @@
 .log-in-btn {
   @include btn;
   grid-column-start: 3;
+}
+
+@media screen and (max-width: 840px) {
+  .navbar-links {
+    display: none;
+  }
+  .sign-out-btn {
+    display: none;
+  }
+
+  .log-in-btn {
+    display: none;
+  }
+  
+  .navbar__logo {
+    grid-column-start: 3;
+  }
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-row-start: 1;
+
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  .hamburger-menu::before,
+  .hamburger-menu::after,
+  .hamburger-menu input {
+    content: "";
+    width: 20px;
+    height: 5px;
+    background-color: v.$content-background ;
+    border-radius: v.$border-radius;
+    transition: opacity v.$animation, width v.$animation, rotate v.$animation, translate v.$animation;
+    transform-origin: left center;
+  }
+  
+  .hamburger-menu input {
+    appearance: none;
+    margin: 3px 0px;
+    outline: none;
+    pointer-events: none;
+  }
+
+  .hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: 29.6px;
+    translate: 0 -2.5px;
+  }
+
+  .hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: 29.6px;
+    translate: 0 2.5px;
+  }
+
+  .hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+  }
+
+  .hamburger-menu:has(input:checked) + .navbar-links {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    align-items: flex-start;
+    padding-left: 0;
+    gap: 20px;
+    width: 160px;
+  }
+
+  .hamburger-menu:has(input:checked) + .navbar-links + .sign-out-btn {
+    display: block;
+    grid-column-start: 1;
+    justify-self: flex-start;
+  }
+
+  .hamburger-menu:has(input:checked) + .navbar-links .log-in-btn {
+    display: block;
+    grid-column-start: 1;
+  }
+
+  .hamburger-menu.hamburger-menu:has(input:checked) .navbar {
+    position: fixed;
+  }
 }

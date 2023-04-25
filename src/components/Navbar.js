@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
@@ -33,6 +34,9 @@ const Navbar = ({ userID, onLogout }) => {
       <Link to="/" className="navbar__logo">
         <p>#Hashtify</p>
       </Link>
+      <label className="hamburger-menu">
+        <input type="checkbox" />
+      </label>
       <ul className="navbar-links">
         <li className="narbar-links__item">
           <Link className="narbar-links__text" to="/search">

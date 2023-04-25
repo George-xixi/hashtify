@@ -35,7 +35,7 @@ const AddHashtagsAuto = ({
     setAlert(initalState.alert);
     setSearchResults("");
     setSearchValue("");
-    setImageResult("");
+    setImageResult([]);
   };
   const handleFieldChange = (e) => {
     setFields({
@@ -89,7 +89,7 @@ AddHashtagsAuto.propTypes = {
   userID: PropTypes.string.isRequired,
   searchValue: PropTypes.string.isRequired,
   searchResults: PropTypes.string.isRequired,
-  imageResult: PropTypes.string.isRequired,
+  imageResult: PropTypes.arrayOf(PropTypes.shape).isRequired,
   setSearchResults: PropTypes.func.isRequired,
   setSearchValue: PropTypes.func.isRequired,
   setImageResult: PropTypes.func.isRequired,

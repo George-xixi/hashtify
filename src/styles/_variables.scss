@@ -1,10 +1,10 @@
 $font: "sora";
 $background-color: #077f6b;
 $text-color-1: #ffffff;
-$content-background: #2f2e2e;
+$content-background: rgb(46, 46, 46);
 $facebook-blue: #3975ea;
 $border-radius: 10px;
-
+$animation: 200ms ease-in-out;
 
 @mixin center-items {
   display: flex;
